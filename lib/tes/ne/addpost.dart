@@ -1,13 +1,15 @@
+// ignore_for_file: unnecessary_null_comparison, deprecated_member_use
+
+import 'package:diva/models/interstes/interests_model.dart';
+import 'package:diva/module/edit_post/components/choose_post_image_buttom_sheet.dart';
+import 'package:diva/module/edit_post/cubit/edit_post_cubit.dart';
+import 'package:diva/module/intersts/components/item_Interest.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/interests_name_item.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/edit_post/components/choose_post_image_buttom_sheet.dart';
-import 'package:project1/module/edit_post/components/validator_snack_bar_interests.dart';
-import 'package:project1/module/edit_post/cubit/edit_post_cubit.dart';
-import 'package:project1/module/intersts/components/item_Interest.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/interests_name_item.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
+
 
 class AddPost11 extends StatefulWidget {
   const AddPost11({ Key? key }) : super(key: key);
@@ -31,14 +33,14 @@ class _AddPost11State extends State<AddPost11> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back_ios_new_rounded,
                         ),
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
                       ),
-                      Text(
+                      const Text(
                         "Edit Post",
                         style: TextStyle(
                           fontSize: 18,
@@ -46,14 +48,13 @@ class _AddPost11State extends State<AddPost11> {
                         ),
                       ),
                       TextButton(
-                        // TODO:
                         style: ButtonStyle(
-                          overlayColor: MaterialStateProperty.all(
+                          overlayColor: WidgetStateProperty.all(
                             defaultColor.withOpacity(0.1),
                           ),
                         ),
                         onPressed: () {
-                          if (cubit.postEditImage == null) {
+                          if (cubit.showInterste == null) {
                             showToast(
                               text: 'It must contain an image',
                               state: ToastState.ERROR,
@@ -61,7 +62,7 @@ class _AddPost11State extends State<AddPost11> {
                             );
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           "SAVE",
                           style: TextStyle(
                             color: defaultColor,
@@ -71,32 +72,30 @@ class _AddPost11State extends State<AddPost11> {
                       ),
                     ],
                   ),
-                  Divider(
+                  const Divider(
                     color: hintFieldColor,
                     thickness: 1,
                   ),
                   Expanded(
                     child: ListView(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       children: [
                         Container(
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           child: Column(
                             children: [
                               Row(
                                 children: [
-                                  CircleAvatar(
+                                  const CircleAvatar(
                                     backgroundImage: AssetImage(
-                                      //TODO: Add a images publisher
                                       'assets/images/interests/art.jpg',
                                     ),
                                   ),
                                   SizedBox(
                                       width: getProportionateScreenWidth(8)),
-                                  Text(
-                                    //TODO: Add a name publisher
+                                  const Text(
                                     "Mauricio Lopez",
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 17,
                                     ),
@@ -107,7 +106,7 @@ class _AddPost11State extends State<AddPost11> {
                                   height: getProportionateScreenHeight(25)),
                               TextFormField(
                                // controller: postController,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: defaultColor),
                                   ),
@@ -124,19 +123,19 @@ class _AddPost11State extends State<AddPost11> {
                               SizedBox(
                                 height: getProportionateScreenHeight(15),
                               ),
-                              cubit.postEditImage == null
+                              cubit.selected == null
                                   ? InkWell(
                                       onTap: () {
                                         showModalBottomSheet(
                                           context: context,
-                                          shape: RoundedRectangleBorder(
+                                          shape: const RoundedRectangleBorder(
                                             borderRadius: BorderRadius.vertical(
                                                 top: Radius.circular(20)),
                                           ),
                                           builder: (builder) =>
                                               choosePostImageButtomSheet(
-                                            context: context,
-                                            cubit: cubit,
+                                            context: context, cubit: null,
+                                            // cubit: cubit.showInterste,
                                           ),
                                         );
                                       },
@@ -173,7 +172,7 @@ class _AddPost11State extends State<AddPost11> {
                                             onPressed: () {
                                               cubit.deletePostEditImage();
                                             },
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.cancel,
                                               size: 30,
                                               color: Colors.black54,
@@ -202,7 +201,7 @@ class _AddPost11State extends State<AddPost11> {
                                     // interests("Graphic Design"),
                                     // ],
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   IconButton(
                                     onPressed: () {
                                       cubit.changeShowInterste();
@@ -224,7 +223,7 @@ class _AddPost11State extends State<AddPost11> {
                                       child: ListView.separated(
                                         scrollDirection: Axis.horizontal,
                                         separatorBuilder: (context, index) =>
-                                            SizedBox(width: 5),
+                                            const SizedBox(width: 5),
                                         itemCount: interestsName.length,
                                         itemBuilder: (context, index) =>
                                             buildInterestItem(
@@ -245,7 +244,7 @@ class _AddPost11State extends State<AddPost11> {
                                             } else {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
-                                                      validatorSnackBarInterests);
+                                                      validatorSnackBarInterests as SnackBar);
                                             }
                                           },
                                         ),
@@ -263,4 +262,8 @@ class _AddPost11State extends State<AddPost11> {
             ),
           );
   }
+}
+
+extension on EditPostCubit {
+  get postEditImage => null;
 }

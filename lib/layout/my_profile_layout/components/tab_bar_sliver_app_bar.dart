@@ -1,13 +1,15 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class TabBarSliverAppBar extends StatelessWidget {
   GlobalKey? keyForBack;
 
-  TabBarSliverAppBar({this.keyForBack});
+  TabBarSliverAppBar({super.key, this.keyForBack});
 
   @override
   Widget build(BuildContext context) {
@@ -24,26 +26,26 @@ class TabBarSliverAppBar extends StatelessWidget {
             indicatorColor: defaultColor,
             indicatorSize: TabBarIndicatorSize.label,
             labelColor: Colors.black,
-            unselectedLabelStyle: TextStyle(
+            unselectedLabelStyle: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
-            labelStyle: TextStyle(
+            labelStyle: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
-            unselectedLabelColor: Color(0xff9f9f9f),
+            unselectedLabelColor: const Color(0xff9f9f9f),
             onTap: (index) {
               if (cubit.currentTabIndex == index) {
                 Scrollable.ensureVisible(
                   keyForBack!.currentContext!,
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                 );
               } else {
                 cubit.changeTabIndex(index);
               }
             },
-            tabs: [
+            tabs: const [
               Tab(text: 'Post'),
               Tab(text: 'Prometing'),
             ],
@@ -52,13 +54,13 @@ class TabBarSliverAppBar extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                bottomLeft: const Radius.circular(30),
-                bottomRight: const Radius.circular(30),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0x29000000),
-                  offset: const Offset(0, 5),
+                  color: Color(0x29000000),
+                  offset: Offset(0, 5),
                   blurRadius: 30,
                   spreadRadius: 0,
                 )

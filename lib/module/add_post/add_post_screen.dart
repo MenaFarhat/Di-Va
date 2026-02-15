@@ -1,23 +1,24 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:io';
 
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/models/interstes/interests_model.dart';
+import 'package:diva/module/add_post/cubit/add_post_cubit.dart';
+import 'package:diva/module/intersts/components/item_Interest.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/add_post/cubit/add_post_cubit.dart';
-import 'package:project1/module/intersts/components/item_Interest.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/colors.dart';
+
 
 class AddPostScreen extends StatelessWidget {
   static String routeName = "/AddPostScreen";
   File? image;
-  AddPostScreen({
+  AddPostScreen({super.key, 
     this.image,
   });
   var postController = TextEditingController();
@@ -45,11 +46,11 @@ class AddPostScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
                   ),
                 ),
-                title: Text(
+                title: const Text(
                   'Add Post',
                   style: TextStyle(
                     color: Colors.black,
@@ -74,7 +75,7 @@ class AddPostScreen extends StatelessWidget {
                         );
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       "NEXT",
                       style: TextStyle(
                         color: defaultColor,
@@ -87,7 +88,7 @@ class AddPostScreen extends StatelessWidget {
               body: Padding(
                 padding: const EdgeInsets.all(20),
                 child: ListView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   children: [
                     Column(
                       children: [
@@ -104,7 +105,7 @@ class AddPostScreen extends StatelessWidget {
                                       "$HOST/$USERIMAGE/${MyProfileLayoutCubit.get(context).myProfileData!.myInfo!.personal!.photo}",
                                     ),
                                   )
-                                : CircleAvatar(
+                                : const CircleAvatar(
                                     backgroundImage: AssetImage(
                                       USERIMAGENULL,
                                     ),
@@ -116,7 +117,7 @@ class AddPostScreen extends StatelessWidget {
                                   .myInfo!
                                   .personal!
                                   .name!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 20,
                               ),
                             ),
@@ -128,7 +129,7 @@ class AddPostScreen extends StatelessWidget {
                               horizontal: getProportionateScreenWidth(18)),
                           child: TextFormField(
                             controller: postController,
-                            decoration: InputDecoration.collapsed(
+                            decoration: const InputDecoration.collapsed(
                               hintText: "Enter your Description",
                             ),
                             maxLines: null,
@@ -163,7 +164,7 @@ class AddPostScreen extends StatelessWidget {
                                             child: Text(
                                               "#${interestsName[cubit.selected[index]]}",
                                               overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: defaultColor,
                                               ),
                                             ),
@@ -171,7 +172,7 @@ class AddPostScreen extends StatelessWidget {
                                         },
                                       )
                                     : [
-                                        Text(
+                                        const Text(
                                           "#Interest",
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
@@ -180,7 +181,7 @@ class AddPostScreen extends StatelessWidget {
                                         ),
                                       ],
                               ),
-                              Spacer(),
+                              const Spacer(),
                               IconButton(
                                 onPressed: () {
                                   cubit.changeShowInterste();
@@ -203,7 +204,7 @@ class AddPostScreen extends StatelessWidget {
                                 child: ListView.separated(
                                   scrollDirection: Axis.horizontal,
                                   separatorBuilder: (context, index) =>
-                                      SizedBox(width: 5),
+                                      const SizedBox(width: 5),
                                   itemCount: interestsName.length,
                                   itemBuilder: (context, index) {
                                     // if (index == 0) return SizedBox();

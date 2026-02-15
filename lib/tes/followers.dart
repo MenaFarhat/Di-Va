@@ -1,5 +1,5 @@
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 class Followers extends StatelessWidget {
@@ -8,13 +8,13 @@ class Followers extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Container(
             //width: 75,
             //height: 75,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment(0.5, 0),
                 end: Alignment(0.5, 1),
                 colors: [defaultColor, defaultColor],
@@ -34,12 +34,12 @@ class Followers extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ListTile(
-                          leading: Icon(
+                          leading: const Icon(
                             FluentIcons.image_48_filled,
                             color: defaultColor,
                             size: 30,
                           ),
-                          title: Text(
+                          title: const Text(
                             'Show Profile Photo',
                             style: TextStyle(
                               fontSize: 16,
@@ -51,12 +51,12 @@ class Followers extends StatelessWidget {
                           },
                         ),
                         ListTile(
-                          leading: Icon(
+                          leading: const Icon(
                             Icons.camera_outlined,
                             color: defaultColor,
                             size: 30,
                           ),
-                          title: Text(
+                          title: const Text(
                             'Show story',
                             style: TextStyle(
                               fontSize: 16,
@@ -81,27 +81,27 @@ class Followers extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text(
           name,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w400,
             fontStyle: FontStyle.italic,
           ),
         ),
-        SizedBox(width: 12),
+        const SizedBox(width: 12),
         IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               FluentIcons.chat_48_regular,
               size: 25,
               color: defaultColor,
             )),
-        Spacer(),
+        const Spacer(),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_forward_ios_rounded,
             size: 25,
           ),
@@ -116,13 +116,13 @@ class Followers extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
                     size: 30,
                   ),
@@ -130,7 +130,7 @@ class Followers extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
                   child: Text(
                     "Followers",
@@ -140,7 +140,7 @@ class Followers extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView(
                 children: [

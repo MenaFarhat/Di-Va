@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/models/Language.dart';
+// ignore_for_file: deprecated_member_use
 
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/models/Language.dart';
+import 'package:flutter/material.dart';
 PopupMenuItem<int> languageItem({
   int? index,
   MyProfileLayoutCubit? cubit,

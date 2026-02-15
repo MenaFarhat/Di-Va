@@ -1,5 +1,6 @@
-import 'package:project1/models/comment_model.dart';
-import 'package:project1/models/post_model.dart';
+
+import 'package:diva/models/comment_model.dart';
+import 'package:diva/models/post_model.dart';
 
 class ExploreModel {
   PostModel? post;

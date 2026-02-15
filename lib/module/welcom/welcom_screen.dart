@@ -1,12 +1,14 @@
+import 'package:diva/module/login/login_screen.dart';
+import 'package:diva/module/register/register_screen.dart.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/module/login/login_screen.dart';
-import 'package:project1/module/register/register_screen.dart.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 import '../../shared/components/components.dart';
 
 class WelcomScreen extends StatelessWidget {
   static String routeName = "/welcom";
+
+  const WelcomScreen({super.key});
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -35,7 +37,7 @@ class WelcomScreen extends StatelessWidget {
               SizedBox(
                 height: getProportionateScreenHeight(16),
               ),
-              Text(
+              const Text(
                 'social media application',
                 style: TextStyle(
                   color: textColor,
@@ -52,7 +54,7 @@ class WelcomScreen extends StatelessWidget {
                   left: getProportionateScreenWidth(52),
                   bottom: getProportionateScreenHeight(19),
                 ),
-                child: Text(
+                child: const Text(
                   'Allows the user to post and interact with other people within the application',
                   maxLines: 2,
                   textAlign: TextAlign.center,

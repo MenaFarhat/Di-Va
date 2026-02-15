@@ -1,14 +1,10 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, must_be_immutable
+
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/models/post_model.dart';
-import 'package:project1/models/profile_model.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-import 'package:project1/layout/my_profile_layout/components/part_top_profile.dart';
 
 class PartTopProfileSliverAppBar extends StatelessWidget {
   ScrollController? scrollController;
@@ -17,7 +13,7 @@ class PartTopProfileSliverAppBar extends StatelessWidget {
   var icon;
   Widget? background;
   void Function()? onPressed;
-  PartTopProfileSliverAppBar({
+  PartTopProfileSliverAppBar({super.key, 
     required this.scrollController,
     required this.keyForBack,
     required this.icon,
@@ -47,7 +43,7 @@ class PartTopProfileSliverAppBar extends StatelessWidget {
                       child: childBottomSheet,
                     ),
                     isScrollControlled: true,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(20),
                       ),

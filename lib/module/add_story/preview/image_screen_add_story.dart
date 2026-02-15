@@ -1,16 +1,17 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:io';
+import 'package:diva/layout/app_layout/app_layout.dart';
+import 'package:diva/models/story/story_model.dart';
+import 'package:diva/module/add_story/cubit/add_story_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/models/story/story_model.dart';
-import 'package:project1/module/add_story/cubit/add_story_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-import 'package:video_player/video_player.dart';
 
 class ImageScreenAddStory extends StatelessWidget {
-  ImageScreenAddStory({
+  ImageScreenAddStory({super.key, 
     required this.imageFile,
   });
 
@@ -25,10 +26,10 @@ class ImageScreenAddStory extends StatelessWidget {
     //     if (file == null) return Container();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             IconBroken.Arrow___Left_2,
             size: 30,
             color: Colors.black,
@@ -45,13 +46,13 @@ class ImageScreenAddStory extends StatelessWidget {
               child: BlocConsumer<AddStoryCubit, AddStoryStates>(
                 listener: (context, state) {
                   if (state is AddStoryPostSucssesState) {
-                    navigateAndFinish(context, AppLayout());
+                    navigateAndFinish(context, const AppLayout());
                   }
                 },
                 builder: (context, state) {
                   AddStoryCubit cubit = AddStoryCubit.get(context);
                   return TextButton(
-                    child: Text(
+                    child: const Text(
                       'NEXT',
                       style: TextStyle(
                         fontSize: 18,

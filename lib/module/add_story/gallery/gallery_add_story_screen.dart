@@ -1,25 +1,22 @@
-import 'dart:io';
-import 'dart:typed_data';
+
+// ignore_for_file: avoid_print, must_be_immutable
 
 import 'package:camera/camera.dart';
+import 'package:diva/module/add_story/components/components.dart';
+import 'package:diva/module/add_story/cubit/add_story_cubit.dart';
+import 'package:diva/module/add_story/gallery/asset_thumbnail_add_story.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/module/add_story/camera/camera_add_story_screen.dart';
-import 'package:project1/module/add_story/components/components.dart';
-import 'package:project1/module/add_story/cubit/add_story_cubit.dart';
-import 'package:project1/module/add_story/gallery/asset_thumbnail_add_story.dart';
-import 'package:project1/module/add_story/preview/image_screen_add_story.dart';
-import 'package:project1/module/add_story/preview/video_screen_add_story.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
+
 
 class GalleryAddStoryScreen extends StatefulWidget {
   List<CameraDescription>? cameras;
-  GalleryAddStoryScreen({this.cameras});
+  GalleryAddStoryScreen({super.key, this.cameras});
 
   @override
   State<GalleryAddStoryScreen> createState() => _GalleryAddStoryScreenState();
@@ -114,7 +111,7 @@ class _GalleryAddStoryScreenState extends State<GalleryAddStoryScreen>
               backgroundColor: Colors.white,
               elevation: 0,
               leading: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   IconBroken.Arrow___Left_2,
                   size: 30,
                   color: Colors.black,
@@ -124,7 +121,7 @@ class _GalleryAddStoryScreenState extends State<GalleryAddStoryScreen>
                 },
               ),
               actions: [
-                Icon(
+                const Icon(
                   Icons.auto_awesome_motion,
                   color: defaultColor,
                   size: 20,
@@ -136,7 +133,7 @@ class _GalleryAddStoryScreenState extends State<GalleryAddStoryScreen>
                       cubit.currentAlbum != null
                           ? cubit.currentAlbum!.name
                           : '',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         color: defaultColor,
                       ),
@@ -144,7 +141,7 @@ class _GalleryAddStoryScreenState extends State<GalleryAddStoryScreen>
                     onPressed: () {
                       final keyContext = keyAppBar.currentContext;
                       final box = keyContext!.findRenderObject() as RenderBox;
-                      final pos = box.localToGlobal(Offset.zero);
+                      box.localToGlobal(Offset.zero);
 
                       showModalBottomSheet(
                         isScrollControlled: true,

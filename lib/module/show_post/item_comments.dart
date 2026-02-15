@@ -1,14 +1,12 @@
+import 'package:diva/models/comment_model.dart';
+import 'package:diva/module/show_post/settingsCommentBottomsheet.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/models/comment_model.dart';
-import 'package:project1/models/explore_model.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/module/show_post/settingsCommentBottomsheet.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget buidCommentsItem({
   required CommentModel? comment,
@@ -21,7 +19,7 @@ Widget buidCommentsItem({
           ? () {
               showModalBottomSheet(
                 context: context,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
@@ -45,7 +43,7 @@ Widget buidCommentsItem({
                   backgroundImage: NetworkImage(
                   "$HOST/$USERIMAGE/${comment.user!.photo!}",
                 ))
-              : CircleAvatar(
+              : const CircleAvatar(
                   backgroundImage: AssetImage(
                     USERIMAGENULL,
                   ),
@@ -60,7 +58,7 @@ Widget buidCommentsItem({
               children: [
                 Text(
                   comment.user!.name!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
                   ),
@@ -68,7 +66,7 @@ Widget buidCommentsItem({
                 SizedBox(height: getProportionateScreenHeight(5)),
                 Text(
                   comment.content!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: textColor,
                     fontSize: 13,
                   ),

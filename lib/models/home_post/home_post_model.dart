@@ -1,6 +1,9 @@
-import 'package:project1/models/comment_model.dart';
-import 'package:project1/models/post_model.dart';
-import 'package:project1/models/story/story_model.dart';
+// ignore_for_file: avoid_print
+
+
+import 'package:diva/models/comment_model.dart';
+import 'package:diva/models/post_model.dart';
+import 'package:diva/models/story/story_model.dart';
 
 class HomePostModel {
   int? restNumberOfPost;

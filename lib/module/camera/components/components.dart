@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: deprecated_member_use
+
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-
 Widget defaultSliverAppBarEndToGallery({
   required void Function()? onPressedIconButton,
   Widget? widgit,
@@ -20,7 +20,7 @@ Widget defaultSliverAppBarEndToGallery({
       automaticallyImplyLeading: false,
       actions: [
         IconButton(
-          icon: Icon(
+          icon: const Icon(
             IconBroken.Camera,
             size: 30,
             color: defaultColor,
@@ -28,7 +28,7 @@ Widget defaultSliverAppBarEndToGallery({
           onPressed: onPressedIconButton,
         ),
         if (widgit != null) widgit,
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
       ],
@@ -65,7 +65,7 @@ Widget defaultSliverAppBarCenterToGallery({
       automaticallyImplyLeading: false,
       flexibleSpace: FlexibleSpaceBar(
         background: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: child,
         ),
       ),
@@ -84,7 +84,7 @@ Widget defaultSliverAppBarTopToGallery({
       elevation: 0.5,
       centerTitle: true,
       leading: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.arrow_back_ios_new_rounded,
           color: Colors.black,
         ),
@@ -94,7 +94,7 @@ Widget defaultSliverAppBarTopToGallery({
       ),
       title: Text(
         title!,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           color: welcomColor,
           fontWeight: FontWeight.w500,
@@ -103,7 +103,7 @@ Widget defaultSliverAppBarTopToGallery({
       actions: [
         TextButton(
           style: ButtonStyle(
-            overlayColor: MaterialStateProperty.all(
+            overlayColor: WidgetStateProperty.all(
               defaultColor.withOpacity(0.1),
             ),
           ),
@@ -118,7 +118,7 @@ Widget defaultSliverAppBarTopToGallery({
               : onPressedTextButton,
           child: Text(
             next,
-            style: TextStyle(
+            style: const TextStyle(
               color: defaultColor,
               fontSize: 15,
             ),

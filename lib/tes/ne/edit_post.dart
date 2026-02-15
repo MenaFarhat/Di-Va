@@ -1,13 +1,7 @@
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/home_post/components/buid_my_stoey.dart';
-import 'package:project1/module/home_post/components/buid_stoey_item.dart';
-import 'package:project1/module/intersts/components/item_Interest.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/styes/colors.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
-import '../../module/intersts/interests_screen.dart';
 
 class EditPost extends StatefulWidget {
   const EditPost({Key? key}) : super(key: key);
@@ -19,10 +13,10 @@ class EditPost extends StatefulWidget {
 class _EditPostState extends State<EditPost> {
   Widget interests(String name) {
     return Padding(
-      padding: EdgeInsets.all(2),
+      padding: const EdgeInsets.all(2),
       child: Center(
         child: Row(children: [
-          Text(
+          const Text(
             "#",
             maxLines: 1,
             textAlign: TextAlign.center,
@@ -38,7 +32,7 @@ class _EditPostState extends State<EditPost> {
             maxLines: 1,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: defaultColor,
               fontSize: 15,
               fontWeight: FontWeight.w400,
@@ -55,13 +49,13 @@ class _EditPostState extends State<EditPost> {
       child: Scaffold(
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
                     size: 30,
                   ),
@@ -70,7 +64,7 @@ class _EditPostState extends State<EditPost> {
                     Navigator.of(context).pop();
                   },
                 ),
-                Text(
+                const Text(
                   "Edit Post",
                   style: TextStyle(
                     fontSize: 17,
@@ -80,13 +74,13 @@ class _EditPostState extends State<EditPost> {
                 ),
                 //Spacer(),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(220, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(220, 0, 0, 0),
                   child: TextButton(
                     style: ButtonStyle(
                         overlayColor:
-                            MaterialStateProperty.all(Colors.transparent)),
+                            WidgetStateProperty.all(Colors.transparent)),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "SAVE",
                       style: TextStyle(
                         color: defaultColor,
@@ -98,7 +92,7 @@ class _EditPostState extends State<EditPost> {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               color: hintFieldColor,
               thickness: 1,
             ),
@@ -107,18 +101,18 @@ class _EditPostState extends State<EditPost> {
             // ),
             Expanded(
               child: ListView(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   // SizedBox(
                   //   height: 30,
                   // ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 15),
-                    padding: EdgeInsets.only(
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.only(
                         left: 21, right: 17, top: 15, bottom: 8),
                     // width: getProportionateScreenWidth(346),
                     // height: getProportionateScreenHeight(493),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         // borderRadius: BorderRadius.circular(20),
                         //  boxShadow: [
                         //    BoxShadow(
@@ -133,7 +127,7 @@ class _EditPostState extends State<EditPost> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        const Row(
                           children: [
                             // CircleAvatar(
                             //   backgroundImage: post!.photo != null
@@ -144,7 +138,6 @@ class _EditPostState extends State<EditPost> {
                             // ),
                             CircleAvatar(
                               backgroundImage: AssetImage(
-                                //TODO: Add a images publisher
                                 'assets/images/interests/art.jpg',
                               ),
                             ),
@@ -155,12 +148,11 @@ class _EditPostState extends State<EditPost> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  //TODO: Add a name publisher
 
                                   "Mauricio Lopez",
 
-                                  style: const TextStyle(
-                                    color: const Color(0xff181818),
+                                  style: TextStyle(
+                                    color: Color(0xff181818),
                                     fontWeight: FontWeight.w700,
                                     fontSize: 17.0,
                                   ),
@@ -169,24 +161,22 @@ class _EditPostState extends State<EditPost> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        Container(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              fillColor: Colors.transparent,
-                              filled: true,
-                              hintText: "Enter your Description",
-                              hintStyle: TextStyle(
-                                color: hintFieldColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15.0,
-                              ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            fillColor: Colors.transparent,
+                            filled: true,
+                            hintText: "Enter your Description",
+                            hintStyle: TextStyle(
+                              color: hintFieldColor,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15.0,
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Stack(children: [
@@ -206,37 +196,37 @@ class _EditPostState extends State<EditPost> {
                           ),
                           IconButton(
                               onPressed: () {},
-                              icon: Icon(
+                              icon: const Icon(
                                 FluentIcons.dismiss_48_filled,
                                 size: 20,
                                 color: Colors.white,
                               )),
                         ]),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Row(
                           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             // post.interestId.f
                             interests("Programming C++"),
                             interests("Graphic Design"),
-                            Spacer(),
+                            const Spacer(),
                             IconButton(
                               onPressed: () {
                                 showModalBottomSheet(
                                     context: context,
                                     builder: (_) {
                                       return ListView.separated(
-                                        physics: BouncingScrollPhysics(),
+                                        physics: const BouncingScrollPhysics(),
                                         scrollDirection: Axis.horizontal,
                                         itemBuilder: (context, index) {
                                           return Column(
                                             children: [
                                               Padding(
-                                                padding: EdgeInsets.all(8),
+                                                padding: const EdgeInsets.all(8),
                                                 child: Container(
                                                   width: 165,
                                                   height: 165,
-                                                  decoration: BoxDecoration(
+                                                  decoration: const BoxDecoration(
                                                     image: DecorationImage(
                                                       image: AssetImage(
                                                         'assets/images/interests/graphic_design.jpg',
@@ -251,7 +241,7 @@ class _EditPostState extends State<EditPost> {
                                                   // child:
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Flower",
                                                 style: TextStyle(
                                                   fontSize: 25,
@@ -263,14 +253,14 @@ class _EditPostState extends State<EditPost> {
                                           );
                                         },
                                         separatorBuilder: (context, index) =>
-                                            SizedBox(
+                                            const SizedBox(
                                           width: 20,
                                         ),
                                         itemCount: 15,
                                       );
                                     });
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 FluentIcons.arrow_circle_right_48_filled,
                                 size: 40,
                                 color: defaultColor,

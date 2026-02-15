@@ -1,22 +1,22 @@
-import 'dart:developer';
+// ignore_for_file: avoid_print, use_build_context_synchronously, must_be_immutable
+
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:diva/module/camera/asset_thumbnail.dart';
+import 'package:diva/module/camera/camera_screen.dart';
+import 'package:diva/module/camera/components/components.dart';
+import 'package:diva/module/camera/cubit/image_cubit.dart';
+import 'package:diva/module/intersts/interests_screen.dart';
+import 'package:diva/module/register/cubit/register_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/module/camera/asset_thumbnail.dart';
-import 'package:project1/module/camera/camera_screen.dart';
-import 'package:project1/module/camera/components/components.dart';
-import 'package:project1/module/camera/cubit/image_cubit.dart';
-import 'package:project1/module/intersts/interests_screen.dart';
-import 'package:project1/module/register/cubit/register_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-
 class AddPhotoRegisterScreen extends StatelessWidget {
   static String routeName = "/addPhotoRegisterScreen";
   File? image;
-  AddPhotoRegisterScreen({this.image});
+  AddPhotoRegisterScreen({super.key, this.image});
   GlobalKey keyForBack = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class AddPhotoRegisterScreen extends StatelessWidget {
             child: Scaffold(
               body: NestedScrollView(
                 floatHeaderSlivers: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 headerSliverBuilder: (context, innerBoxIsScrolled) {
                   return [
                     BlocProvider(
@@ -44,7 +44,7 @@ class AddPhotoRegisterScreen extends StatelessWidget {
                               state: ToastState.ERROR,
                             );
                           } else if (state is RegisterAddPhotoSuccessState) {
-                            navigateTo(context, InterestsScreen());
+                            navigateTo(context, const InterestsScreen());
                           }
                         },
                         builder: (context, state) {
@@ -66,7 +66,7 @@ class AddPhotoRegisterScreen extends StatelessWidget {
                     defaultSliverAppBarCenterToGallery(
                       keyForBack: keyForBack,
                       child: state is! ImageGetCurrentImageSucssesState
-                          ? Center(
+                          ? const Center(
                               child: CircularProgressIndicator(),
                             )
                           : cubitImage.currentImage != null
@@ -78,7 +78,7 @@ class AddPhotoRegisterScreen extends StatelessWidget {
                                 )
                               : CircleAvatar(
                                   radius: getProportionateScreenHeight(190),
-                                  backgroundImage: AssetImage(
+                                  backgroundImage: const AssetImage(
                                     'assets/images/profile.png',
                                   ),
                                 ),
@@ -107,24 +107,24 @@ class AddPhotoRegisterScreen extends StatelessWidget {
                                 state: ToastState.ERROR,
                               );
                             } else if (state is RegisterAddPhotoSuccessState) {
-                              navigateTo(context, InterestsScreen());
+                              navigateTo(context, const InterestsScreen());
                             }
                           },
                           builder: (context, state) {
-                            RegisterCubit registercubit =
-                                RegisterCubit.get(context);
+                            RegisterCubit.get(context);
                             return TextButton(
-                              child: Text('Skip'),
+                              child: const Text('Skip'),
                               onPressed: () async {
-                                navigateTo(context, InterestsScreen());
+                                navigateTo(context, const InterestsScreen());
                               },
                             );
                           },
                         ),
                       ),
                       onChangedDropdownButton: (String? value) {
-                        if (state is ImageGetCurrentImageSucssesState)
+                        if (state is ImageGetCurrentImageSucssesState) {
                           cubitImage.getdropdownValue(value);
+                        }
                       },
                     ),
                   ];
@@ -133,16 +133,16 @@ class AddPhotoRegisterScreen extends StatelessWidget {
                   child: state is! ImageGetCurrentImageSucssesState
                       // &&
                       // state is! ImageGetCurrentImageSucssesState
-                      ? CircularProgressIndicator()
+                      ? const CircularProgressIndicator()
                       : cubitImage.imageFromAlbum!.isEmpty
-                          ? Center(
+                          ? const Center(
                               child: Text(
                                 'Oops There are no pictures in this Album',
                               ),
                             )
                           : GridView.builder(
                               gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 3,
                               ),
                               itemCount: cubitImage.imageFromAlbum!.length,

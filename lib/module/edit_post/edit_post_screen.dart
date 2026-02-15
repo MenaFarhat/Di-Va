@@ -1,29 +1,24 @@
+// ignore_for_file: avoid_print, must_be_immutable
+
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/models/interstes/interests_model.dart';
+import 'package:diva/models/post_model.dart';
+import 'package:diva/module/edit_post/cubit/edit_post_cubit.dart';
+import 'package:diva/module/home_post/cubit/home_post_cubit.dart';
+import 'package:diva/module/intersts/components/item_Interest.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/models/home_post/home_post_model.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/models/post_model.dart';
-import 'package:project1/module/add_post/cubit/add_post_cubit.dart';
-import 'package:project1/module/edit_post/components/choose_post_image_buttom_sheet.dart';
-import 'package:project1/module/edit_post/cubit/edit_post_cubit.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-
-import 'package:project1/module/intersts/components/item_Interest.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
-import '../../shared/components/interests_name_item.dart';
-
 class EditPostScreen extends StatelessWidget {
   var postController = TextEditingController();
   PostModel post;
   int index;
 
-  EditPostScreen({
+  EditPostScreen({super.key, 
     required this.post,
     required this.index,
   });
@@ -47,11 +42,11 @@ class EditPostScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
                   ),
                 ),
-                title: Text(
+                title: const Text(
                   'Edit Post',
                   style: TextStyle(
                     color: Colors.black,
@@ -88,7 +83,7 @@ class EditPostScreen extends StatelessWidget {
                             );
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           "Edit",
                           style: TextStyle(
                             color: defaultColor,
@@ -103,7 +98,7 @@ class EditPostScreen extends StatelessWidget {
               body: Padding(
                 padding: const EdgeInsets.all(20),
                 child: ListView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   children: [
                     Column(
                       children: [
@@ -120,7 +115,7 @@ class EditPostScreen extends StatelessWidget {
                                       "$HOST/$USERIMAGE/${MyProfileLayoutCubit.get(context).myProfileData!.myInfo!.personal!.photo}",
                                     ),
                                   )
-                                : CircleAvatar(
+                                : const CircleAvatar(
                                     backgroundImage: AssetImage(
                                       USERIMAGENULL,
                                     ),
@@ -145,7 +140,7 @@ class EditPostScreen extends StatelessWidget {
                               horizontal: getProportionateScreenWidth(18)),
                           child: TextFormField(
                             controller: postController,
-                            decoration: InputDecoration.collapsed(
+                            decoration: const InputDecoration.collapsed(
                               hintText: "Enter your Description",
                             ),
                             maxLines: null,
@@ -180,7 +175,7 @@ class EditPostScreen extends StatelessWidget {
                                             child: Text(
                                               "#${interestsName[cubit.selected[index]]}",
                                               overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: defaultColor,
                                               ),
                                             ),
@@ -188,7 +183,7 @@ class EditPostScreen extends StatelessWidget {
                                         },
                                       )
                                     : [
-                                        Text(
+                                        const Text(
                                           "#Interest",
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
@@ -197,7 +192,7 @@ class EditPostScreen extends StatelessWidget {
                                         ),
                                       ],
                               ),
-                              Spacer(),
+                              const Spacer(),
                               IconButton(
                                 onPressed: () {
                                   cubit.changeShowInterste();
@@ -220,7 +215,7 @@ class EditPostScreen extends StatelessWidget {
                                 child: ListView.separated(
                                   scrollDirection: Axis.horizontal,
                                   separatorBuilder: (context, index) =>
-                                      SizedBox(width: 5),
+                                      const SizedBox(width: 5),
                                   itemCount: interestsName.length,
                                   itemBuilder: (context, index) =>
                                       buildInterestItem(

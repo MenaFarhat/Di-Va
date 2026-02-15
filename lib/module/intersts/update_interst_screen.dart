@@ -1,19 +1,17 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/module/intersts/cubit/intersts_cubit.dart';
+import 'package:diva/module/intersts/interests_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/module/intersts/components/item_Interest.dart';
-import 'package:project1/module/intersts/cubit/intersts_cubit.dart';
-import 'package:project1/module/intersts/interests_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/layout/home_layout/home_layout.dart';
 
-import '../../models/interstes/interests_model.dart';
 
 class UpdateInterestsScreen extends StatelessWidget {
   List<int>? interest;
-  UpdateInterestsScreen({required this.interest});
+  UpdateInterestsScreen({super.key, required this.interest});
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

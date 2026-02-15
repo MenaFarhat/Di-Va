@@ -1,7 +1,7 @@
+// ignore_for_file: file_names
+
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/tes/s.dart';
 import 'dart:math';
 
 class CustomPainterImageProfile extends CustomPainter {

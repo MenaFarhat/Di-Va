@@ -1,17 +1,18 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print, library_private_types_in_public_api, must_be_immutable
+
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:diva/module/add_story/preview/image_screen_add_story.dart';
+import 'package:diva/module/add_story/preview/video_screen_add_story.dart';
+import 'package:diva/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project1/module/add_story/preview/image_screen_add_story.dart';
-import 'package:project1/module/add_story/preview/video_screen_add_story.dart';
-import 'package:project1/shared/components/components.dart';
-// import 'package:permission_handler/permission_handler.dart';
 import 'package:video_player/video_player.dart';
 
 class CameraAddStoryScreen extends StatefulWidget {
   List<CameraDescription>? cameras;
-  CameraAddStoryScreen({this.cameras});
+  CameraAddStoryScreen({super.key, this.cameras});
 
   @override
   _CameraAddStoryScreenState createState() => _CameraAddStoryScreenState();
@@ -22,8 +23,6 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
   CameraController? controller;
   VideoPlayerController? videoController;
 
-  File? _imageFile;
-  File? _videoFile;
 
   // Initial values
   bool _isCameraInitialized = false;
@@ -69,18 +68,6 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
     }
   }
 
-  Future<void> _startVideoPlayer() async {
-    if (_videoFile != null) {
-      videoController = VideoPlayerController.file(_videoFile!);
-      await videoController!.initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized,
-        // even before the play button has been pressed.
-        setState(() {});
-      });
-      await videoController!.setLooping(true);
-      await videoController!.play();
-    }
-  }
 
 // !
   Future<void> startVideoRecording() async {
@@ -333,15 +320,15 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                       for (ResolutionPreset preset
                                           in resolutionPresets)
                                         DropdownMenuItem(
+                                          value: preset,
                                           child: Text(
                                             preset
                                                 .toString()
                                                 .split('.')[1]
                                                 .toUpperCase(),
                                             style:
-                                                TextStyle(color: Colors.white),
+                                                const TextStyle(color: Colors.white),
                                           ),
-                                          value: preset,
                                         )
                                     ],
                                     onChanged: (value) {
@@ -352,7 +339,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                       onNewCameraSelected(
                                           controller!.description);
                                     },
-                                    hint: Text("Select item"),
+                                    hint: const Text("Select item"),
                                   ),
                                 ),
                               ),
@@ -368,9 +355,8 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    _currentExposureOffset.toStringAsFixed(1) +
-                                        'x',
-                                    style: TextStyle(color: Colors.black),
+                                    '${_currentExposureOffset.toStringAsFixed(1)}x',
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ),
@@ -378,7 +364,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                             Expanded(
                               child: RotatedBox(
                                 quarterTurns: 3,
-                                child: Container(
+                                child: SizedBox(
                                   height: 30,
                                   child: Slider(
                                     value: _currentExposureOffset,
@@ -424,9 +410,8 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        _currentZoomLevel.toStringAsFixed(1) +
-                                            'x',
-                                        style: TextStyle(color: Colors.white),
+                                        '${_currentZoomLevel.toStringAsFixed(1)}x',
+                                        style: const TextStyle(color: Colors.white),
                                       ),
                                     ),
                                   ),
@@ -522,7 +507,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                             !_isRearCameraSelected;
                                       });
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       // _isRearCameraSelected
                                       // ?
                                       Icons.cameraswitch_outlined,
@@ -536,7 +521,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Spacer(flex: 3),
+                                const Spacer(flex: 3),
                                 InkWell(
                                   onTap: () async {
                                     if (_isRecordingInProgress) {
@@ -552,25 +537,25 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                   child: Stack(
                                     alignment: Alignment.center,
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.circle,
                                         color: Colors.white38,
                                         size: 50,
                                       ),
                                       !_isRecordingInProgress
-                                          ? Icon(
+                                          ? const Icon(
                                               Icons.circle,
                                               color: Colors.red,
                                             )
                                           : Container(),
                                       _isRecordingInProgress
                                           ? controller!.value.isRecordingPaused
-                                              ? Icon(
+                                              ? const Icon(
                                                   Icons.play_arrow,
                                                   color: Colors.white,
                                                   size: 20,
                                                 )
-                                              : Icon(
+                                              : const Icon(
                                                   Icons.pause,
                                                   color: Colors.white,
                                                 )
@@ -578,7 +563,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                     ],
                                   ),
                                 ),
-                                Spacer(flex: 3),
+                                const Spacer(flex: 3),
                                 InkWell(
                                   onTap: _isRecordingInProgress
                                       ? () async {
@@ -604,18 +589,18 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                   child: Stack(
                                     alignment: Alignment.center,
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.circle,
                                         color: Colors.white38,
                                         size: 80,
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.circle,
                                         color: Colors.white,
                                         size: 65,
                                       ),
                                       _isRecordingInProgress
-                                          ? Icon(
+                                          ? const Icon(
                                               Icons.stop_rounded,
                                               color: Colors.black,
                                               size: 30,
@@ -624,7 +609,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                                     ],
                                   ),
                                 ),
-                                Spacer(flex: 10),
+                                const Spacer(flex: 10),
                               ],
                             ),
                           ],
@@ -632,7 +617,7 @@ class _CameraAddStoryScreenState extends State<CameraAddStoryScreen>
                       ),
                     ],
                   )
-                : Center(
+                : const Center(
                     child: Text(
                       'LOADING',
                       style: TextStyle(color: Colors.white),

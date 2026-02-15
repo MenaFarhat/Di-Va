@@ -1,4 +1,5 @@
-import 'package:project1/models/user_model.dart';
+
+import 'package:diva/models/user_model.dart';
 
 class CommentModel {
   int? commentId;

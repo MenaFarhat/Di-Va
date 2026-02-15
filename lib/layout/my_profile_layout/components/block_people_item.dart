@@ -1,5 +1,5 @@
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget blockPeopleItem({String? image, String? name}) {
   return ListTile(
@@ -24,7 +24,7 @@ Widget blockPeopleItem({String? image, String? name}) {
     ),
     trailing: IconButton(
       onPressed: () {},
-      icon: Icon(
+      icon: const Icon(
         Icons.person_off_outlined,
         size: 28,
       ),
@@ -32,7 +32,7 @@ Widget blockPeopleItem({String? image, String? name}) {
     ),
     title: Text(
       name!,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 20,
         fontStyle: FontStyle.italic,
       ),

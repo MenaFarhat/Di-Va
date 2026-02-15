@@ -1,20 +1,20 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/app_layout/app_layout.dart';
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/models/register/list_model.dart';
+import 'package:diva/models/user_data_model.dart';
+import 'package:diva/module/edit_profile/components.dart';
+import 'package:diva/module/edit_profile/edit_photo_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/models/register/list_model.dart';
-import 'package:project1/models/user_data_model.dart';
-import 'package:project1/module/edit_profile/components.dart';
-import 'package:project1/module/edit_profile/edit_photo_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-
 class EditProfileScreen extends StatelessWidget {
   TextEditingController nameController = TextEditingController();
   TextEditingController bioController = TextEditingController();
@@ -24,6 +24,8 @@ class EditProfileScreen extends StatelessWidget {
   String? monthChoose;
   String? yearChoose;
 
+  EditProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +34,14 @@ class EditProfileScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () {
             AppLayoutCubit.get(context).changeBottomNav(3);
-            navigateTo(context, AppLayout());
+            navigateTo(context, const AppLayout());
           },
           color: Colors.black,
         ),
-        title: Text(
+        title: const Text(
           'Edit profile',
           style: TextStyle(
             color: Colors.black,
@@ -56,7 +58,7 @@ class EditProfileScreen extends StatelessWidget {
             builder: (context, state) {
               MyProfileLayoutCubit cubit = MyProfileLayoutCubit.get(context);
               if (cubit.myProfileData == null) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else {
@@ -74,7 +76,7 @@ class EditProfileScreen extends StatelessWidget {
 
                 return state is MyProfileEditprofileLoadingStates ||
                         state is MyProfileEditprofileLoadingStates
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : Form(
@@ -87,7 +89,7 @@ class EditProfileScreen extends StatelessWidget {
                                 alignment: AlignmentDirectional.bottomEnd,
                                 children: [
                                   user.photo == null
-                                      ? CircleAvatar(
+                                      ? const CircleAvatar(
                                           radius: 90,
                                           backgroundImage: AssetImage(
                                             USERIMAGENULL,
@@ -103,7 +105,7 @@ class EditProfileScreen extends StatelessWidget {
                                     onPressed: () {
                                       navigateTo(context, EditPhotoScreen());
                                     },
-                                    icon: CircleAvatar(
+                                    icon: const CircleAvatar(
                                       // radius: 600.0,
                                       backgroundColor: Colors.white,
                                       child: Icon(
@@ -117,7 +119,7 @@ class EditProfileScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: getProportionateScreenHeight(30)),
-                            Text(
+                            const Text(
                               'Name',
                               style: TextStyle(
                                 fontSize: 12.0,
@@ -136,7 +138,7 @@ class EditProfileScreen extends StatelessWidget {
                               prefix: Icons.account_circle,
                             ),
                             SizedBox(height: getProportionateScreenHeight(30)),
-                            Text(
+                            const Text(
                               'Bio',
                               style: TextStyle(
                                 fontSize: 12.0,
@@ -156,7 +158,7 @@ class EditProfileScreen extends StatelessWidget {
                               isMax: true,
                             ),
                             SizedBox(height: getProportionateScreenHeight(30)),
-                            Text(
+                            const Text(
                               'Gender',
                               style: TextStyle(
                                 fontSize: 12.0,
@@ -179,7 +181,7 @@ class EditProfileScreen extends StatelessWidget {
                               },
                             ),
                             SizedBox(height: getProportionateScreenHeight(30)),
-                            Text(
+                            const Text(
                               'Select Your Birthday',
                               style: TextStyle(
                                 fontSize: 12.0,
@@ -207,7 +209,7 @@ class EditProfileScreen extends StatelessWidget {
                                     },
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Expanded(
                                   flex: 2,
                                   child: defultProgileDropdownButton(
@@ -225,7 +227,7 @@ class EditProfileScreen extends StatelessWidget {
                                     },
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Expanded(
                                   flex: 2,
                                   child: defultProgileDropdownButton(
@@ -253,7 +255,7 @@ class EditProfileScreen extends StatelessWidget {
                                     cubit.editprofile(
                                       name: nameController.text,
                                       birthDay:
-                                          "${yearChoose}/${monthChoose}/${dayChoose}",
+                                          "$yearChoose/$monthChoose/$dayChoose",
                                       gender: genderChoose == 'Male' ? 2 : 1,
                                       bio: bioController.text,
                                     );

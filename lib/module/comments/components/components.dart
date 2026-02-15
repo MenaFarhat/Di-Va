@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: deprecated_member_use
+
+import 'package:diva/models/comment_model.dart';
+import 'package:diva/module/show_post/settingsCommentBottomsheet.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:project1/models/comment_model.dart';
-import 'package:project1/models/explore_model.dart';
-import 'package:project1/module/show_post/settingsCommentBottomsheet.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget reactPost({
   required void Function()? onTap,
@@ -49,7 +48,7 @@ Widget buildCommentItem({
         onLongPress: () {
           showModalBottomSheet(
             context: context,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(20),
               ),
@@ -74,7 +73,7 @@ Widget buildCommentItem({
                     ),
                     radius: 22,
                   )
-                : CircleAvatar(
+                : const CircleAvatar(
                     backgroundImage: AssetImage(
                       USERIMAGENULL,
                     ),

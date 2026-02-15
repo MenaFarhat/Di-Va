@@ -1,17 +1,18 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/models/extensions/date_time_extension.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/models/extensions/date_time_extension.dart';
-
 class StoryUserInfo extends StatelessWidget {
   String? profileImageUrl;
   String? name;
   DateTime? creatAt;
 
-  StoryUserInfo({
+  StoryUserInfo({super.key, 
     required this.name,
     required this.profileImageUrl,
     required this.creatAt,
@@ -35,7 +36,7 @@ class StoryUserInfo extends StatelessWidget {
             : CircleAvatar(
                 radius: 20.0,
                 backgroundColor: Colors.grey[300],
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   USERIMAGENULL,
                 ),
                 // CachedNetworkImageProvider(
@@ -62,9 +63,9 @@ class StoryUserInfo extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         IconButton(
-          icon: Iconify(
+          icon: const Iconify(
             Fluent.delete_16_regular,
             size: 25.0,
             color: Colors.white,

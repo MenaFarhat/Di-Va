@@ -1,11 +1,10 @@
-import 'package:bloc/bloc.dart';
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
+import 'package:diva/models/Language.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:project1/models/Language.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 import '../localization/language_constants.dart';
 

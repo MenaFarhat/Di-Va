@@ -1,32 +1,25 @@
-import 'dart:developer';
+// ignore_for_file: camel_case_types, avoid_types_as_parameter_names, avoid_print
 
+import 'package:diva/firebase_options.dart';
+import 'package:diva/layout/app_layout/app_layout.dart';
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/layout/home_layout/cubit/home_layout_cubit.dart';
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/module/chat/cubit/social_cubit.dart';
+import 'package:diva/module/follow/cubit/follow_cubit.dart';
+import 'package:diva/module/home_post/cubit/home_post_cubit.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/module/welcom/welcom_screen.dart';
+import 'package:diva/shared/cubit/app_cubit.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/local/local_notifications.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/firebase_options.dart';
-
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/layout/home_layout/cubit/home_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/module/add_photo/add_photo_register_screen.dart';
-import 'package:project1/module/chat/chats_screen.dart';
-import 'package:project1/module/chat/cubit/social_cubit.dart';
-import 'package:project1/module/follow/cubit/follow_cubit.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-import 'package:project1/module/home_post/home_post_screen.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/module/welcom/welcom_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/cubit/app_cubit.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/local/local_notifications.dart';
-import 'package:project1/shared/network/remote/pusher.dart';
-import 'package:project1/shared/network/remote/pusher_service.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/themes.dart';
 import 'shared/bloc_observer.dart';
 import 'shared/network/local/cache_helper.dart';
 import 'shared/network/remote/dio_helper.dart';
@@ -85,13 +78,15 @@ void main() async {
     // background: Colors.green);
   });
 
-  runApp(MyApp());
+  runApp(const MyApp());
   // },
   // blocObserver: MyBlocObserver(),
   // );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     LocalNotifications.initialze(context);
@@ -144,10 +139,9 @@ class MyApp extends StatelessWidget {
               iconTheme: const IconThemeData(
                 color: defaultColor,
               ),
-              appBarTheme: AppBarTheme(
+              appBarTheme: const AppBarTheme(
                 titleSpacing: 20,
                 surfaceTintColor: Colors.amber,
-                backwardsCompatibility: false,
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarIconBrightness: Brightness.light,
                   statusBarColor: Colors.white,
@@ -171,16 +165,16 @@ class MyApp extends StatelessWidget {
                 selectedItemColor: defaultColor,
               ),
               primaryTextTheme: TextTheme(
-                titleMedium: TextStyle().copyWith(
+                titleMedium: const TextStyle().copyWith(
                   color: Colors.white,
                 ),
               ),
-              textTheme: TextTheme().copyWith(
-                caption: TextStyle().copyWith(
+              textTheme: const TextTheme().copyWith(
+                bodySmall: const TextStyle().copyWith(
                   color: Colors.white,
                   fontSize: 10,
                 ),
-                bodyText1: TextStyle(),
+                bodyLarge: const TextStyle(),
               ),
             ),
             //lightTheme,
@@ -191,7 +185,7 @@ class MyApp extends StatelessWidget {
             // AddPhotoRegisterScreen.routeName,
 
             // initialRoute: AddPhotoRegisterScreen.routeName,
-            home: token != null ? AppLayout() : WelcomScreen(),
+            home: token != null ? const AppLayout() : const WelcomScreen(),
           );
         },
       ),

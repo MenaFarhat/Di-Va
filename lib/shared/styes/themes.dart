@@ -1,13 +1,13 @@
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 // import 'package:hexcolor/hexcolor.dart';
 
 ThemeData darkTheme = ThemeData(
   primarySwatch: ColorToMaterialColor(defaultColor).toMaterialByOpacity(),
-  scaffoldBackgroundColor: Color(0XFF333739),
-  appBarTheme: AppBarTheme(
+  scaffoldBackgroundColor: const Color(0XFF333739),
+  appBarTheme: const AppBarTheme(
     titleSpacing: 20,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.light,
@@ -24,15 +24,15 @@ ThemeData darkTheme = ThemeData(
     // backgroundColor: HexColor("#333739"),
     elevation: 0.0,
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
     // backgroundColor: HexColor("#333739"),
     unselectedItemColor: Colors.grey,
     elevation: 20.0,
     selectedItemColor: defaultColor,
   ),
-  textTheme: TextTheme(
-    bodyText1: TextStyle(
+  textTheme: const TextTheme(
+    bodyLarge: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
       color: Colors.white,
@@ -47,10 +47,9 @@ ThemeData lightTheme = ThemeData(
   iconTheme: const IconThemeData(
     color: defaultColor,
   ),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     titleSpacing: 20,
     surfaceTintColor: Colors.amber,
-    backwardsCompatibility: false,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.light,
       statusBarColor: Colors.white,
@@ -74,7 +73,7 @@ ThemeData lightTheme = ThemeData(
     selectedItemColor: defaultColor,
   ),
   textTheme: const TextTheme(
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
       color: Colors.black,

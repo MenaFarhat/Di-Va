@@ -1,11 +1,13 @@
+import 'package:diva/layout/home_layout/components/part_top_home_sliver_app_bar.dart';
+import 'package:diva/layout/home_layout/components/tab_bar_sliver_app_bar_home.dart';
+import 'package:diva/module/explore/explore_screen.dart';
+import 'package:diva/module/home_post/home_post_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/layout/home_layout/components/part_top_home_sliver_app_bar.dart';
-import 'package:project1/layout/home_layout/components/tab_bar_sliver_app_bar_home.dart';
-import 'package:project1/module/explore/explore_screen.dart';
-import 'package:project1/module/home_post/home_post_screen.dart';
 
 class HomeLayout extends StatelessWidget {
   static String routeName = "/HomeLayout";
+
+  const HomeLayout({super.key});
 
 // TabController s=TabController(length: 2,vsync: this);
   @override
@@ -21,14 +23,14 @@ class HomeLayout extends StatelessWidget {
             body: NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) {
                 return [
-                  PartTopHomeSliverAppBar(),
-                  TabBarSliverAppBarHome(),
+                  const PartTopHomeSliverAppBar(),
+                  const TabBarSliverAppBarHome(),
                 ];
               },
               body: TabBarView(
-                physics: PageScrollPhysics(),
+                physics: const PageScrollPhysics(),
                 children: [
-                  HomePostScreen(),
+                  const HomePostScreen(),
                   ExploreScreen(constraints: constraints),
                 ],
               ),

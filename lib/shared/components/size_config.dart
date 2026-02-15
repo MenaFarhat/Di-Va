@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class SizeConfig {
@@ -5,6 +7,8 @@ class SizeConfig {
   static late double screenWidth;
   static late double screenHeight;
   static late double screentext;
+
+  static get orientation => null;
 
   // static double? defaultSize;
   // static Orientation? orientation;

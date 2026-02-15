@@ -1,18 +1,16 @@
-import 'package:flutter/cupertino.dart';
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/layout/my_profile_layout/my_profile_layout.dart';
+import 'package:diva/layout/profile/profile_screen.dart';
+import 'package:diva/models/follow_model.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ph.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/layout/profile/profile_screen.dart';
-import 'package:project1/models/follow_model.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget buildFollowPepole({
   required FollowAndBlockModel? person,
@@ -25,13 +23,13 @@ Widget buildFollowPepole({
       Flexible(
         child: ListTile(
           onTap: () {
-            AppLayoutCubit cubit = AppLayoutCubit.get(context);
+            AppLayoutCubit.get(context);
             if (person!.userId == myUserId) {
               // cubit.changeBottomNav(3);
               navigateTo(
                 context,
                 // AppLayout(),
-                MyProfileLayout(),
+                const MyProfileLayout(),
               );
             } else {
               navigateTo(
@@ -45,7 +43,7 @@ Widget buildFollowPepole({
           leading: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment(0.5, 0),
                 end: Alignment(0.5, 1),
                 colors: [defaultColor, defaultColor],
@@ -62,7 +60,7 @@ Widget buildFollowPepole({
                     ),
                     radius: 28,
                   )
-                : CircleAvatar(
+                : const CircleAvatar(
                     backgroundImage: AssetImage(
                       'assets/images/profile.png',
                     ),
@@ -71,7 +69,7 @@ Widget buildFollowPepole({
           ),
           title: Text(
             person.name!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               fontStyle: FontStyle.italic,
             ),
@@ -83,7 +81,7 @@ Widget buildFollowPepole({
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(16)),
         child: IconButton(
           onPressed: () {},
-          icon: Iconify(
+          icon: const Iconify(
             Ph.chat_circle_dots,
             size: 25,
             color: defaultColor,

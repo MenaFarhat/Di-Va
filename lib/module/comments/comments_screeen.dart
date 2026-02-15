@@ -1,33 +1,21 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+// ignore_for_file: deprecated_member_use, must_be_immutable
+
+import 'package:diva/module/comments/components/components.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/network/remote/pusher_service.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/ph.dart';
-import 'package:iconify_flutter/icons/uil.dart';
 import 'package:laravel_flutter_pusher/laravel_flutter_pusher.dart';
-import 'package:project1/models/explore_model.dart';
-import 'package:project1/models/home_post/home_post_model.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/comments/components/components.dart';
-import 'package:project1/module/edit_post/edit_post_screen.dart';
-import 'package:project1/module/home_post/home_post_screen.dart';
-import 'package:project1/models/extensions/date_time_extension.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/network/remote/pusher_service.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-import 'package:project1/tes/ne/add_post.dart';
-import 'package:readmore/readmore.dart';
 
 PusherService pusherService = PusherService();
 
 class CommentsScreeen extends StatelessWidget {
-  CommentsScreeen({
+  CommentsScreeen({super.key, 
     this.postId,
   });
   String? postId;
@@ -54,7 +42,7 @@ class CommentsScreeen extends StatelessWidget {
             ),
             clipBehavior: Clip.hardEdge,
             child: state is ShowPostLoadingState
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : Column(
@@ -100,7 +88,7 @@ class CommentsScreeen extends StatelessWidget {
                         color: Colors.grey[300],
                       ),
                       state is ShowPostLoadingState
-                          ? Center(
+                          ? const Center(
                               child: CircularProgressIndicator(),
                             )
                           : Expanded(

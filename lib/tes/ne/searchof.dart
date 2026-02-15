@@ -1,5 +1,5 @@
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class SearchOf extends StatelessWidget {
   const SearchOf({Key? key}) : super(key: key);
@@ -10,14 +10,14 @@ class SearchOf extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
                     size: 30,
                   ),
@@ -25,7 +25,7 @@ class SearchOf extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                Text(
+                const Text(
                   "Graphic Design",
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -36,7 +36,7 @@ class SearchOf extends StatelessWidget {
                   ),
                 ),
                // SizedBox(width: 10),
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage(
                     'assets/images/interests/graphic_design.jpg',
                   ),
@@ -44,11 +44,11 @@ class SearchOf extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               color: Color(0xff9a9ea4),
               thickness: 1,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
           ],
         ),
       ),

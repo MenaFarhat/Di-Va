@@ -1,18 +1,17 @@
+// ignore_for_file: avoid_print
+
+import 'package:diva/module/follow/cubit/follow_cubit.dart';
+import 'package:diva/module/home_post/components/buid_my_stoey.dart';
+import 'package:diva/module/home_post/components/buid_post_home_item.dart';
+import 'package:diva/module/home_post/components/buid_stoey_item.dart';
+import 'package:diva/module/home_post/cubit/home_post_cubit.dart';
+import 'package:diva/module/story/story_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:laravel_flutter_pusher/laravel_flutter_pusher.dart';
-import 'package:project1/models/follow_model.dart';
-import 'package:project1/module/follow/cubit/follow_cubit.dart';
-import 'package:project1/module/home_post/components/buid_my_stoey.dart';
-import 'package:project1/module/home_post/components/buid_post_home_item.dart';
-import 'package:project1/module/home_post/components/buid_stoey_item.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-import 'package:project1/module/story/story_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/pusher_service.dart';
 
 // PusherService pusherService = PusherService();
 
@@ -42,6 +41,8 @@ import 'package:project1/shared/network/remote/pusher_service.dart';
 
 class HomePostScreen extends StatelessWidget {
   static String routeName = "/HomePost";
+
+  const HomePostScreen({super.key});
   // LaravelFlutterPusher pusher =
   //     pusherService.initPusher("12345", "192.168.1.104", 6001, "mt1");
   @override
@@ -76,7 +77,7 @@ class HomePostScreen extends StatelessWidget {
                   HomePostCubit cubit = HomePostCubit.get(context);
                   return Scaffold(
                     body: state is GetHomePostsErrorStates
-                        ? Center(
+                        ? const Center(
                             child: Text(
                               "Opss... You lost concted",
                               textAlign: TextAlign.center,
@@ -86,11 +87,11 @@ class HomePostScreen extends StatelessWidget {
                             ),
                           )
                         : state is GetHomePostsLoadingStates
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : SingleChildScrollView(
-                                physics: BouncingScrollPhysics(),
+                                physics: const BouncingScrollPhysics(),
                                 child: Column(
                                   children: [
                                     Container(
@@ -102,14 +103,14 @@ class HomePostScreen extends StatelessWidget {
                                       height: getProportionateScreenHeight(130),
                                       child: Row(
                                         children: [
-                                          buidMyStoey(),
+                                          const buidMyStoey(),
                                           SizedBox(
                                               width:
                                                   getProportionateScreenWidth(
                                                       10)),
                                           Flexible(
                                             child: ListView.separated(
-                                              physics: BouncingScrollPhysics(),
+                                              physics: const BouncingScrollPhysics(),
                                               scrollDirection: Axis.horizontal,
                                               itemBuilder: (context, index) {
                                                 return buidStoeyItem(
@@ -144,13 +145,13 @@ class HomePostScreen extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Divider(
+                                    const Divider(
                                       color: Color(0xff9a9ea4),
                                       thickness: 1,
                                     ),
                                     ListView.separated(
                                       shrinkWrap: true,
-                                      physics: NeverScrollableScrollPhysics(),
+                                      physics: const NeverScrollableScrollPhysics(),
                                       itemBuilder: (context, index) =>
                                           buidPostHomeItem(
                                         index: index,
@@ -159,7 +160,7 @@ class HomePostScreen extends StatelessWidget {
                                             .data!.posts!.homeModel![index],
                                       ),
                                       separatorBuilder: (context, index) =>
-                                          SizedBox(
+                                          const SizedBox(
                                         height: 20,
                                       ),
                                       itemCount:

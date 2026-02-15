@@ -1,16 +1,10 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/layout/my_profile_layout/components/custem_image_profile.dart';
 
-import 'package:project1/tes/ne/main_screen.dart';
-import 'package:project1/tes/ne/sittings.dart';
 
 class Profile1 extends StatefulWidget {
   static String routeName = "profile";
+
+  const Profile1({super.key});
 
   @override
   State<Profile1> createState() => _ProfileState();
@@ -128,19 +122,18 @@ class CustomSearchDelegate extends SearchDelegate {
         onPressed: () {
           query = '';
         },
-        icon: Icon(Icons.clear),
+        icon: const Icon(Icons.clear),
       ),
     ];
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
         onPressed: () {
           close(context, null);
         },
-        icon: Icon(Icons.arrow_back));
+        icon: const Icon(Icons.arrow_back));
   }
 
   @override
@@ -164,7 +157,6 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
     List<String> matchQuery = [];
     for (var item in searchTerms) {
       if (item.toLowerCase().contains(query.toLowerCase())) {

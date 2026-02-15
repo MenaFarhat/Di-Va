@@ -1,22 +1,20 @@
-import 'dart:ui';
 
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/my_profile_layout/components/custemImageProfile.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/tes/followers.dart';
+import 'package:diva/tes/followings.dart';
+import 'package:diva/tes/ne/show_photo.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:project1/layout/my_profile_layout/components/part_top_profile_sliver_app_bar.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/layout/my_profile_layout/components/custemImageProfile.dart';
-import 'package:project1/tes/followers.dart';
-import 'package:project1/tes/followings.dart';
-import 'package:project1/tes/ne/show_photo.dart';
 
 class PartTopProfile extends StatelessWidget {
   ScrollController? scrollController;
 
-  PartTopProfile({
+  PartTopProfile({super.key, 
     this.scrollController,
   });
 
@@ -32,8 +30,8 @@ class PartTopProfile extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: const Color(0x29000000),
-            offset: const Offset(0, 5),
+            color: Color(0x29000000),
+            offset: Offset(0, 5),
             blurRadius: 30,
             spreadRadius: 0,
           )
@@ -60,12 +58,12 @@ class PartTopProfile extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   ListTile(
-                                    leading: Icon(
+                                    leading: const Icon(
                                       FluentIcons.image_48_filled,
                                       color: defaultColor,
                                       size: 30,
                                     ),
-                                    title: Text(
+                                    title: const Text(
                                       'Show Profile photo',
                                       style: TextStyle(
                                         fontSize: 16,
@@ -84,12 +82,12 @@ class PartTopProfile extends StatelessWidget {
                                     },
                                   ),
                                   ListTile(
-                                    leading: Icon(
+                                    leading: const Icon(
                                       Icons.camera_outlined,
                                       color: defaultColor,
                                       size: 30,
                                     ),
-                                    title: Text(
+                                    title: const Text(
                                       'Show story',
                                       style: TextStyle(
                                         fontSize: 16,
@@ -105,7 +103,7 @@ class PartTopProfile extends StatelessWidget {
                             },
                           );
                         },
-                        child: Container(
+                        child: SizedBox(
                           height: getProportionateScreenHeight(300),
                           width: getProportionateScreenWidth(145),
                           child: Stack(
@@ -138,12 +136,12 @@ class PartTopProfile extends StatelessWidget {
           SizedBox(width: getProportionateScreenWidth(10)),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(right: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Mina farhat",
                     style: TextStyle(
                       color: Colors.black,
@@ -152,7 +150,7 @@ class PartTopProfile extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: getProportionateScreenHeight(10)),
-                  Text(
+                  const Text(
                     "welcom to my profile and you have the  right amount of time to ",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -175,12 +173,12 @@ class PartTopProfile extends StatelessWidget {
                           if (scrollController!.hasClients) {
                             scrollController!.animateTo(
                               box.size.height,
-                              duration: Duration(milliseconds: 300),
+                              duration: const Duration(milliseconds: 300),
                               curve: Curves.easeOut,
                             );
                           }
                         },
-                        child: Column(
+                        child: const Column(
                           children: [
                             Text(
                               "846",
@@ -204,10 +202,10 @@ class PartTopProfile extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Followers(),
+                                builder: (context) => const Followers(),
                               ));
                         },
-                        child: Column(
+                        child: const Column(
                           children: [
                             Text(
                               "846",
@@ -231,10 +229,10 @@ class PartTopProfile extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Followings(),
+                                builder: (context) => const Followings(),
                               ));
                         },
-                        child: Column(
+                        child: const Column(
                           children: [
                             Text(
                               "568",
@@ -268,13 +266,13 @@ class PartTopProfile extends StatelessWidget {
                         fontSize: 20.0,
                         fontWeight: FontWeight.w700,
                         boxShadow: [
-                          BoxShadow(
+                          const BoxShadow(
                             color: defaultSecondColor,
                             offset: Offset(0, 4),
                             blurRadius: 3.0,
                           )
                         ],
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           stops: [0.0, 1],
@@ -290,14 +288,14 @@ class PartTopProfile extends StatelessWidget {
                           // width: getProportionateScreenWidth(50),
                           height: 48,
                           decoration: BoxDecoration(
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: defaultSecondColor,
                                 offset: Offset(0, 4),
                                 blurRadius: 3.0,
                               )
                             ],
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               stops: [0.0, 1.0],
@@ -308,9 +306,9 @@ class PartTopProfile extends StatelessWidget {
                             ),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                 vertical: 8.0,
                                 horizontal: 15,
                               ),

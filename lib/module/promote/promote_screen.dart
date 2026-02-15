@@ -1,7 +1,7 @@
+import 'package:diva/module/promote/payment_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/module/promote/payment_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class PromoteScreen extends StatefulWidget {
   const PromoteScreen({Key? key}) : super(key: key);
@@ -21,11 +21,11 @@ class _PromoteScreenState extends State<PromoteScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: Icon(
+        leading: const Icon(
           Icons.west,
           color: Colors.black,
         ),
-        title: Text(
+        title: const Text(
           'Promote',
           style: TextStyle(
             color: Colors.black,
@@ -39,8 +39,8 @@ class _PromoteScreenState extends State<PromoteScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
+              const Padding(
+                padding: EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     Text(
@@ -54,7 +54,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
               Padding(
@@ -63,17 +63,17 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   children: [
                     Text(
                       '${numberPsts.round()} ' 'Post ',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     Text(
                       '${numberPsts.round() * 5} ' '\$ ',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -85,7 +85,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ) , */
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     )
                   ],
@@ -96,18 +96,18 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   max: 100,
                   min: 0,
                   inactiveColor: Colors.grey.shade400,
-                  thumbColor: Color(0xff21115C),
-                  activeColor: Color(0xff21115C),
+                  thumbColor: const Color(0xff21115C),
+                  activeColor: const Color(0xff21115C),
                   onChanged: (value) {
                     setState(() {
                       numberPsts = value;
                     });
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
+              const Padding(
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     Text(
@@ -126,11 +126,11 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
+              const Padding(
+                padding: EdgeInsets.all(25.0),
                 child: Column(
                   children: [
                     Text(
@@ -144,7 +144,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
               Row(
@@ -161,9 +161,9 @@ class _PromoteScreenState extends State<PromoteScreen> {
                           borderRadius: BorderRadius.circular(
                             0.0,
                           ),
-                          color: isMtn ? Color(0xff21115C) : Colors.white,
+                          color: isMtn ? const Color(0xff21115C) : Colors.white,
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // Image(
@@ -183,7 +183,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 20.0),
+                  const SizedBox(width: 20.0),
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
@@ -196,9 +196,9 @@ class _PromoteScreenState extends State<PromoteScreen> {
                           borderRadius: BorderRadius.circular(
                             0.0,
                           ),
-                          color: !isMtn ? Color(0xff21115C) : Colors.white,
+                          color: !isMtn ? const Color(0xff21115C) : Colors.white,
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // Image(
@@ -220,10 +220,10 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
-              Text(
+              const Text(
                 '''Note : 
                     
   After payment, you will receive the code for the transfer process.
@@ -233,7 +233,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60.0,
               ),
               Padding(
@@ -257,7 +257,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                                   numberOfPost: numberPsts.toInt(),
                                 ));
                           },
-                          child: Text(
+                          child: const Text(
                             'Next',
                             style: TextStyle(
                               color: Colors.white,

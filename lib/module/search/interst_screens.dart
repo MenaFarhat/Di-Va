@@ -1,18 +1,14 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/models/interstes/interests_model.dart';
+import 'package:diva/module/home_post/components/buid_post_home_item.dart';
+import 'package:diva/module/search/cubit/search_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ci.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/home_post/components/buid_post_home_item.dart';
-import 'package:project1/module/intersts/interests_screen.dart';
-import 'package:project1/module/search/cubit/search_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-
 class InterstScreen extends StatelessWidget {
   int? interstId;
-  InterstScreen({
+  InterstScreen({super.key, 
     required this.interstId,
   });
   @override
@@ -56,7 +52,7 @@ class InterstScreen extends StatelessWidget {
                         height: getProportionateScreenHeight(15),
                       ),
                     )
-                  : Center(
+                  : const Center(
                       child: CircularProgressIndicator(),
                     ),
             );

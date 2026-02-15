@@ -1,6 +1,6 @@
+import 'package:diva/layout/my_profile_layout/components/block_people_item.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/layout/my_profile_layout/components/block_people_item.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget peopleBlockBottomSheet(context) => Column(
       children: [
@@ -18,7 +18,7 @@ Widget peopleBlockBottomSheet(context) => Column(
               image: 'assets/images/interests/animal.jpg',
               name: "Mina farhat",
             ),
-            separatorBuilder: (context, index) => Divider(
+            separatorBuilder: (context, index) => const Divider(
               height: 15,
             ),
           ),

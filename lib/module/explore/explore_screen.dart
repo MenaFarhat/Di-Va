@@ -1,21 +1,17 @@
+// ignore_for_file: avoid_print, must_be_immutable
+
+import 'package:diva/module/explore/buildListExplore.dart';
+import 'package:diva/module/explore/cubit/explore_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/models/explore_model.dart';
-import 'package:project1/module/explore/buildListExplore.dart';
-import 'package:project1/module/explore/buildPostExploreItem.dart';
-import 'package:project1/module/explore/cubit/explore_cubit.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class ExploreScreen extends StatelessWidget {
   BoxConstraints? constraints;
-  ExploreScreen({this.constraints});
+  ExploreScreen({super.key, this.constraints});
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +25,9 @@ class ExploreScreen extends StatelessWidget {
           ExploreCubit cubit = ExploreCubit().get(context);
           return Scaffold(
             body: state is ExploreGetDataLoadingState?
-                ? Center(child: CircularProgressIndicator())
-                : cubit.dataRight.length == 0 && cubit.dataLeft.length == 0
-                    ? Center(
+                ? const Center(child: CircularProgressIndicator())
+                : cubit.dataRight.isEmpty && cubit.dataLeft.isEmpty
+                    ? const Center(
                         child: Text(
                           "Opss... ,There are no posts. You can publish the first post",
                           textAlign: TextAlign.center,

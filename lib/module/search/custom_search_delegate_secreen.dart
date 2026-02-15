@@ -1,11 +1,11 @@
+// ignore_for_file: avoid_print
+
+import 'package:diva/models/interstes/interests_model.dart';
+import 'package:diva/module/search/components/build_search_interest.dart';
+import 'package:diva/module/search/cubit/search_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/profile/profile_screen.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/search/components/build_search_interest.dart';
-import 'package:project1/module/search/cubit/search_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
 
 typedef SearchFilter<T> = List<String?> Function(T t);
 typedef ResultBuilder<T> = Widget Function(T t);
@@ -37,10 +37,10 @@ class CustomSearchDelegateSecreen extends SearchDelegate {
     return [
       AnimatedOpacity(
         opacity: query.isNotEmpty ? 1.0 : 0.0,
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOutCubic,
         child: IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           onPressed: () => query = '',
         ),
       ),
@@ -49,7 +49,6 @@ class CustomSearchDelegateSecreen extends SearchDelegate {
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
       icon: const BackButtonIcon(),
       onPressed: () => close(context, null),
@@ -99,7 +98,7 @@ class CustomSearchDelegateSecreen extends SearchDelegate {
                   )
                 // itemCount: cubit.userSearch.length,
                 // )
-                : Center(
+                : const Center(
                     child: CircularProgressIndicator(),
                   );
           },

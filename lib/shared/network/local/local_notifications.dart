@@ -1,8 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class LocalNotifications {
@@ -22,7 +22,7 @@ class LocalNotifications {
       initializationSettings,
       onSelectNotification: (payload) async {
         if (payload != null) {
-          var resever = json.decode(payload);
+          json.decode(payload);
           print(payload);
           // modelResever = SocialUserModel.fromJson(resever);
           // Navigator.push(
@@ -44,7 +44,7 @@ class LocalNotifications {
     try {
       final id = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-      NotificationDetails notificationDetails = NotificationDetails(
+      NotificationDetails notificationDetails = const NotificationDetails(
         android: AndroidNotificationDetails(
           "easyapproach",
           "easyapproach channel",

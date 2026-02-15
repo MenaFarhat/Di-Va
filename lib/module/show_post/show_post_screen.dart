@@ -1,36 +1,22 @@
-// ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: deprecated_member_use, library_private_types_in_public_api, avoid_print, must_be_immutable, constant_identifier_names, non_constant_identifier_names
 
+import 'package:diva/module/comments/components/components.dart';
+import 'package:diva/module/search/components/build_search_interest.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/module/show_post/item_comments.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/network/remote/pusher_service.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/line_md.dart';
 import 'package:iconify_flutter/icons/ph.dart';
-import 'package:iconify_flutter/icons/prime.dart';
 import 'package:laravel_flutter_pusher/laravel_flutter_pusher.dart';
-// import 'package:laravel_flutter_pusher/laravel_flutter_pusher.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/comments/components/components.dart';
-import 'package:project1/module/search/components/build_search_interest.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/network/remote/pusher_service.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-import 'package:project1/module/show_post/item_comments.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bx.dart';
 
-import 'package:laravel_echo/laravel_echo.dart';
-import 'package:pusher_client/pusher_client.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
-
-import '../../shared/network/remote/pusher.dart';
 
 PusherService pusherService = PusherService();
 
@@ -75,9 +61,21 @@ class ShowPostScreen extends StatelessWidget {
   LaravelFlutterPusher pusher =
       pusherService.initPusher("12345", '$Hos!', 6001, "mt1");
   String? postId;
-  ShowPostScreen({
+
+  // static String routeName;
+
+  // static String routeName;
+
+  // static String routeName;
+
+  // static String routeName;
+
+  // static String routeName;
+  ShowPostScreen({super.key, 
     required this.postId,
   });
+
+  static void get routeName {}
   // var k = initPusherClient();
   @override
   Widget build(BuildContext context) {
@@ -114,7 +112,7 @@ class ShowPostScreen extends StatelessWidget {
         return SafeArea(
           child: Scaffold(
             body: state is ShowPostLoadingState
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : Column(
@@ -122,7 +120,7 @@ class ShowPostScreen extends StatelessWidget {
                       KeyboardVisibilityListener(
                         listener: (isKeyboardVisible) {
                           if (isKeyboardVisible) {
-                            Future.delayed(Duration(milliseconds: 100), () {
+                            Future.delayed(const Duration(milliseconds: 100), () {
                               controllerComments!.animateTo(
                                 controllerComments!.position.maxScrollExtent,
                                 curve: Curves.fastOutSlowIn,
@@ -154,7 +152,7 @@ class ShowPostScreen extends StatelessWidget {
                                       left: getProportionateScreenWidth(20),
                                       child:
                                           cubit.data!.post!.user!.photo == null
-                                              ? CircleAvatar(
+                                              ? const CircleAvatar(
                                                   radius: 40,
                                                   backgroundImage: AssetImage(
                                                     USERIMAGENULL,
@@ -188,12 +186,12 @@ class ShowPostScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               cubit.data!.post!.user!.name!,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-                                            Spacer(),
+                                            const Spacer(),
                                             reactPost(
                                               sizeicon: 35,
                                               color: cubit.data!.post!.react ==
@@ -254,7 +252,7 @@ class ShowPostScreen extends StatelessWidget {
                                       ),
                                       Text(
                                         cubit.data!.post!.content!,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           // color: textColor,
                                           fontSize: 16,
                                         ),
@@ -262,7 +260,7 @@ class ShowPostScreen extends StatelessWidget {
                                       SizedBox(
                                           height:
                                               getProportionateScreenHeight(10)),
-                                      Text(
+                                      const Text(
                                         "Comments :",
                                         style: TextStyle(
                                           fontSize: 22,
@@ -274,10 +272,10 @@ class ShowPostScreen extends StatelessWidget {
                                               getProportionateScreenHeight(10)),
                                       cubit.data!.comments!.isNotEmpty
                                           ? ListView.separated(
-                                              padding: EdgeInsets.symmetric(
+                                              padding: const EdgeInsets.symmetric(
                                                   horizontal: 10),
                                               physics:
-                                                  NeverScrollableScrollPhysics(),
+                                                  const NeverScrollableScrollPhysics(),
                                               shrinkWrap: true,
                                               reverse: true,
                                               itemBuilder: (context, index) {
@@ -291,11 +289,11 @@ class ShowPostScreen extends StatelessWidget {
                                               },
                                               separatorBuilder:
                                                   (context, index) =>
-                                                      SizedBox(height: 20),
+                                                      const SizedBox(height: 20),
                                               itemCount:
                                                   cubit.data!.comments!.length,
                                             )
-                                          : Center(
+                                          : const Center(
                                               child: Text(
                                                 'There are no Comments. You can add the first Comment',
                                                 textAlign: TextAlign.center,
@@ -356,7 +354,7 @@ class ShowPostScreen extends StatelessWidget {
                                     // MediaQuery.of(context).viewInsets.bottom
                                   }
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   IconBroken.Send,
                                   size: 30,
                                   color: defaultColor,

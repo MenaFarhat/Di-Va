@@ -1,15 +1,15 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/my_profile_layout/components/buid_post_profile_item.dart';
+import 'package:diva/models/post_model.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/models/post_model.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/layout/my_profile_layout/components/buid_post_profile_item.dart';
 
 class ProfilePrometedScreen extends StatelessWidget {
   List<PostModel>? posts;
 
-  ProfilePrometedScreen({required this.posts});
+  ProfilePrometedScreen({super.key, required this.posts});
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -22,8 +22,8 @@ class ProfilePrometedScreen extends StatelessWidget {
             // builder: (context, state) {
             // MyProfileLayoutCubit cubit = MyProfileLayoutCubit.get(context);
             // return state is MyProfileLayoutGetDataProfileLoadingStates
-            posts!.length == 0
-                ? Center(
+            posts!.isEmpty
+                ? const Center(
                     child: Text(
                       'Opss...There are no promoted posts. You can promote your posts',
                       textAlign: TextAlign.center,

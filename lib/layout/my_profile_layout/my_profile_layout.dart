@@ -1,23 +1,19 @@
+import 'package:diva/layout/my_profile_layout/components/part_top_profile.dart';
+import 'package:diva/layout/my_profile_layout/components/part_top_profile_sliver_app_bar.dart';
+import 'package:diva/layout/my_profile_layout/components/settings_bottom_sheet.dart';
+import 'package:diva/layout/my_profile_layout/components/tab_bar_sliver_app_bar.dart';
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/module/profile_post/profile_post_sceen.dart';
+import 'package:diva/module/profile_prometed/profile_prometed_screen.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/components/part_top_profile.dart';
-
-import 'package:project1/layout/my_profile_layout/components/part_top_profile_sliver_app_bar.dart';
-import 'package:project1/layout/my_profile_layout/components/sttings_bottom_shet.dart/settings_bottom_sheet.dart';
-import 'package:project1/layout/my_profile_layout/components/tab_bar_sliver_app_bar.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-
-import 'package:project1/module/profile_post/profile_post_sceen.dart';
-import 'package:project1/module/profile_prometed/profile_prometed_screen.dart';
-
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
 
 class MyProfileLayout extends StatelessWidget {
   static String routeName = "/profile_layout";
+
+  const MyProfileLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +45,7 @@ class MyProfileLayout extends StatelessWidget {
                       icon: IconBroken.Setting,
                       background:
                           state is MyProfileLayoutGetDataProfileLoadingStates
-                              ? Center(
+                              ? const Center(
                                   child: CircularProgressIndicator(),
                                 )
                               : PartTopProfile(
@@ -67,7 +63,7 @@ class MyProfileLayout extends StatelessWidget {
                 body: TabBarView(
                   children: [
                     state is MyProfileLayoutGetDataProfileLoadingStates
-                        ? Scaffold(
+                        ? const Scaffold(
                             body: Center(
                               child: CircularProgressIndicator(),
                             ),
@@ -76,7 +72,7 @@ class MyProfileLayout extends StatelessWidget {
                             posts: cubit.myProfileData!.posts,
                           ),
                     state is MyProfileLayoutGetDataProfileLoadingStates
-                        ? Scaffold(
+                        ? const Scaffold(
                             body: Center(
                               child: CircularProgressIndicator(),
                             ),

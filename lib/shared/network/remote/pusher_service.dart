@@ -99,14 +99,13 @@
 //   }
 // }
 
-import 'dart:convert';
-import 'package:dio/dio.dart';
+// ignore_for_file: avoid_print
+
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:laravel_flutter_pusher/laravel_flutter_pusher.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
 
 class PusherService {
   LaravelFlutterPusher initPusher(

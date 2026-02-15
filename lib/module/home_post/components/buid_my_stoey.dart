@@ -1,18 +1,20 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously, camel_case_types
+
 import 'package:camera/camera.dart';
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/module/add_story/gallery/gallery_add_story_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/module/add_story/gallery/gallery_add_story_screen.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class buidMyStoey extends StatelessWidget {
+  const buidMyStoey({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -44,7 +46,7 @@ class buidMyStoey extends StatelessWidget {
                   height: getProportionateScreenWidth(60),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       begin: Alignment(0.5, 0),
                       end: Alignment(0.5, 1),
                       colors: [
@@ -63,7 +65,7 @@ class buidMyStoey extends StatelessWidget {
                       MyProfileLayoutCubit cubit =
                           MyProfileLayoutCubit.get(context);
                       return cubit.myProfileData == null
-                          ? CircleAvatar(
+                          ? const CircleAvatar(
                               backgroundColor: Colors.white,
                               child: CircularProgressIndicator(),
                             )
@@ -74,7 +76,7 @@ class buidMyStoey extends StatelessWidget {
                                   ),
                                   radius: 5,
                                 )
-                              : CircleAvatar(
+                              : const CircleAvatar(
                                   backgroundImage: AssetImage(
                                     USERIMAGENULL,
                                   ),
@@ -95,7 +97,7 @@ class buidMyStoey extends StatelessWidget {
                         color: Colors.white,
                         width: 1,
                       ),
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         begin: Alignment(0.5, 0),
                         end: Alignment(0.5, 1),
                         colors: [
@@ -119,7 +121,7 @@ class buidMyStoey extends StatelessWidget {
           SizedBox(
             height: getProportionateScreenHeight(5),
           ),
-          Text(
+          const Text(
             'add Story',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -164,8 +166,6 @@ class buidMyStoey extends StatelessWidget {
 //                   ),
 //                   child: CircleAvatar(
 //                     backgroundImage: AssetImage(
-//                       //TODO: Add Image current user
-
 //                       'assets/images/interests/animal.jpg',
 //                     ),
 //                   ),

@@ -1,7 +1,9 @@
+// ignore_for_file: avoid_print
+
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -35,25 +37,25 @@ class _MainScreenState extends State<MainScreen> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 93,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   boxShadow: [
                     BoxShadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         offset: Offset(0, 5),
                         blurRadius: 30,
                         spreadRadius: 0)
                   ],
-                  color: const Color(0xffffffff)),
+                  color: Color(0xffffffff)),
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: wi * .8102189781,
                     height: 45,
                     child: TextField(
                       cursorColor: defaultColor,
                       decoration: InputDecoration(
-                        fillColor: Color(0xfff2f2f2),
+                        fillColor: const Color(0xfff2f2f2),
                         filled: true,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(22.5),
@@ -63,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
                             color: Color(0xffb6b7b7)),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           FluentIcons.search_48_filled,
                           size: 35,
                         ),

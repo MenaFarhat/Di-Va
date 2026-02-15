@@ -1,39 +1,33 @@
-import 'dart:io';
 
+import 'package:diva/layout/home_layout/home_layout.dart';
+import 'package:diva/layout/my_profile_layout/my_profile_layout.dart';
+import 'package:diva/module/add_photo/add_photo_register_screen.dart';
+import 'package:diva/module/add_post/add_post_screen.dart';
+import 'package:diva/module/add_post/gallery_add_post_screen.dart';
+import 'package:diva/module/forgot_password/reset_password_screen.dart';
+import 'package:diva/module/home_post/home_post_screen.dart';
+import 'package:diva/module/intersts/interests_screen.dart';
+import 'package:diva/module/login/login_screen.dart';
+import 'package:diva/module/register/register_screen.dart.dart';
+import 'package:diva/module/welcom/welcom_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/module/add_photo/add_photo_register_screen.dart';
-import 'package:project1/module/add_post/add_post_screen.dart';
-import 'package:project1/module/add_post/gallery_add_post_screen.dart';
-import 'package:project1/module/follow/followers_screen.dart';
-import 'package:project1/module/forgot_password/confirm_screen.dart';
-import 'package:project1/module/forgot_password/new_password.dart';
-import 'package:project1/module/home_post/home_post_screen.dart';
-import 'package:project1/module/welcom/welcom_screen.dart';
-import 'package:project1/module/intersts/interests_screen.dart';
-import 'package:project1/module/login/login_screen.dart';
-import 'package:project1/module/register/register_screen.dart.dart';
-import 'package:project1/module/forgot_password/reset_password_screen.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/layout/home_layout/home_layout.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  WelcomScreen.routeName: (context) => WelcomScreen(),
+  WelcomScreen.routeName: (context) => const WelcomScreen(),
   LoginScreen.routeName: (context) => LoginScreen(),
   RegisterScreen.routeName: (context) => RegisterScreen(),
   AddPhotoRegisterScreen.routeName: (context) => AddPhotoRegisterScreen(),
-  InterestsScreen.routeName: (context) => InterestsScreen(),
+  InterestsScreen.routeName: (context) => const InterestsScreen(),
 
-  MyProfileLayout.routeName: (context) => MyProfileLayout(),
+  MyProfileLayout.routeName: (context) => const MyProfileLayout(),
   GalleryAddPostScreen.routeName: (context) => GalleryAddPostScreen(),
   AddPostScreen.routeName: (context) => AddPostScreen(),
   // ShowPostScreen.routeName: (context) => ShowPostScreen(),
   // FollowersScreen.routeName: (context) => FollowersScreen(),
 
   // !
-  HomePostScreen.routeName: (context) => HomePostScreen(),
+  HomePostScreen.routeName: (context) => const HomePostScreen(),
   ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
 
-  HomeLayout.routeName: (context) => HomeLayout(),
+  HomeLayout.routeName: (context) => const HomeLayout(),
 };

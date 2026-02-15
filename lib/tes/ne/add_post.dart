@@ -1,7 +1,6 @@
-import 'dart:ui';
 
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 class Addpost extends StatelessWidget {
@@ -12,11 +11,11 @@ class Addpost extends StatelessWidget {
       child: Container(
         height: 48,
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
           ],
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             stops: [0.0, 1.0],
@@ -32,7 +31,7 @@ class Addpost extends StatelessWidget {
               ),
               child: Text(
                 "#$name",
-                style: TextStyle(
+                style: const TextStyle(
                   color: defaultColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -50,11 +49,11 @@ class Addpost extends StatelessWidget {
           body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(
+            const Text(
               "New Post",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             InkWell(
@@ -66,12 +65,12 @@ class Addpost extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               FluentIcons.image_multiple_48_filled,
                               color: defaultColor,
                               size: 30,
                             ),
-                            title: Text(
+                            title: const Text(
                               'Gallary',
                               style: TextStyle(
                                 fontSize: 16,
@@ -83,12 +82,12 @@ class Addpost extends StatelessWidget {
                             },
                           ),
                           ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               FluentIcons.camera_28_filled,
                               color: defaultColor,
                               size: 30,
                             ),
-                            title: Text(
+                            title: const Text(
                               'Camera',
                               style: TextStyle(
                                 fontSize: 16,
@@ -107,7 +106,7 @@ class Addpost extends StatelessWidget {
                 height: 230,
                 width: 180,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     stops: [0.0, 1.0],
@@ -124,12 +123,12 @@ class Addpost extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Column(children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -144,9 +143,9 @@ class Addpost extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     fillColor: Colors.transparent,
                     filled: true,
                     // labelText: "Discreption",
@@ -165,15 +164,15 @@ class Addpost extends StatelessWidget {
                 ),
               ),
             ]),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Column(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -190,7 +189,7 @@ class Addpost extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton.icon(
                       onPressed: () {},
-                      label: Text(
+                      label: const Text(
                         "Edit",
                         style: TextStyle(
                           fontSize: 20,
@@ -198,7 +197,7 @@ class Addpost extends StatelessWidget {
                           color: defaultColor,
                         ),
                       ),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.edit,
                         size: 20,
                       ),
@@ -206,7 +205,7 @@ class Addpost extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Row(
@@ -218,7 +217,7 @@ class Addpost extends StatelessWidget {
                 ],
               )
             ]),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             InkWell(
@@ -227,13 +226,13 @@ class Addpost extends StatelessWidget {
                 height: 50,
                 width: 250,
                 decoration: BoxDecoration(
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         color: Colors.black26,
                         offset: Offset(0, 4),
                         blurRadius: 5.0)
                   ],
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     stops: [0.0, 1.0],
@@ -244,9 +243,9 @@ class Addpost extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Center(
+                child: const Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       vertical: 8.0,
                       horizontal: 15,
                     ),
@@ -261,7 +260,7 @@ class Addpost extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             InkWell(
@@ -270,13 +269,13 @@ class Addpost extends StatelessWidget {
                 height: 70,
                 width: 350,
                 decoration: BoxDecoration(
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         color: Colors.black26,
                         offset: Offset(0, 4),
                         blurRadius: 5.0)
                   ],
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     stops: [0.0, 1.0],
@@ -287,9 +286,9 @@ class Addpost extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Center(
+                child: const Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       vertical: 8.0,
                       horizontal: 15,
                     ),

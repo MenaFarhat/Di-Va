@@ -1,7 +1,11 @@
+// ignore_for_file: avoid_print
+
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -9,14 +13,14 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text(
+            accountName: const Text(
               "Mina farhat",
               style: TextStyle(fontSize: 19),
             ),
-            accountEmail: Text("Mina.farhat@gmail.com"),
+            accountEmail: const Text("Mina.farhat@gmail.com"),
             currentAccountPicture: CircleAvatar(
               child: InkWell(
-                  child: ClipOval(
+                  child: const ClipOval(
                       // child: Image.network(
                       //   "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                       //   width: 90,
@@ -26,7 +30,7 @@ class MyDrawer extends StatelessWidget {
                       ),
                   onTap: () {}),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: defaultColor,
               // image: const DecorationImage(
               //   image: AssetImage("images/2.png"),
@@ -35,7 +39,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.face_outlined,
               size: 35,
               color: defaultColor,
@@ -50,7 +54,7 @@ class MyDrawer extends StatelessWidget {
             onTap: () => print("Done"),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.chat_bubble_rounded,
               size: 35,
               color: defaultColor,
@@ -62,10 +66,10 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.favorite,
               size: 35,
               color: defaultColor,
@@ -77,10 +81,10 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.notifications_rounded,
               size: 35,
               color: defaultColor,
@@ -108,11 +112,11 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
           const Divider(height: 20),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.settings,
               size: 35,
               color: defaultColor,
@@ -124,10 +128,10 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.language,
               size: 35,
               color: defaultColor,
@@ -139,10 +143,10 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.share,
               size: 35,
               color: defaultColor,
@@ -154,11 +158,11 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
           const Divider(height: 20),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.exit_to_app_rounded,
               size: 35,
               color: defaultColor,
@@ -170,7 +174,7 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: () => null,
+            onTap: () {},
           ),
         ],
       ),

@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/components/size_config.dart';
 
 Widget defultProgileDropdownButton({
   required String hint,
@@ -13,23 +12,23 @@ Widget defultProgileDropdownButton({
     DropdownButtonFormField(
       validator: validate,
       hint: Text(hint),
-      icon: Icon(Icons.arrow_drop_down),
+      icon: const Icon(Icons.arrow_drop_down),
       iconSize: 28,
       isExpanded: isExpanded,
       menuMaxHeight: getProportionateScreenHeight(250),
       isDense: true,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.black54,
         fontSize: 20.0,
       ),
-      value: valueChoose,
+      initialValue: valueChoose,
       onChanged: onChanged,
       items: list.map((valueItem) {
         return DropdownMenuItem(
           value: valueItem,
           child: Text(
             valueItem,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
             ),
           ),

@@ -1,11 +1,10 @@
+// ignore_for_file: constant_identifier_names
+
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:path/path.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
 
 // !!!!!!!!!!!!!!!!!!!!!
 
@@ -49,8 +48,8 @@ Widget alertDialog({
 }) =>
     AlertDialog(
       title: Text(title),
-      content: Text("Are you sure?"),
-      contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 24.0, 10.0),
+      content: const Text("Are you sure?"),
+      contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 24.0, 10.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
@@ -60,7 +59,7 @@ Widget alertDialog({
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(
+          child: const Text(
             "Cancel",
             style: TextStyle(
               fontWeight: FontWeight.w500,
@@ -70,7 +69,7 @@ Widget alertDialog({
         ),
         TextButton(
           onPressed: onPressed,
-          child: Text(
+          child: const Text(
             "OK",
             style: TextStyle(
               fontWeight: FontWeight.w500,
@@ -182,7 +181,7 @@ Widget defaultFormField({
             : null,
         labelText: label,
         hintText: hintText,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: hintFieldColor,
           fontWeight: FontWeight.w400,
           fontSize: 15.0,
@@ -222,8 +221,8 @@ Widget defaultDropFormField({
     ),
     items: list!.map((list) {
       return DropdownMenuItem(
-        child: Text(list),
         value: list,
+        child: Text(list),
       );
     }).toList(),
   );
@@ -239,7 +238,7 @@ SnackBar validatorSnackBarInterests({String? text, ToastState? state}) =>
       backgroundColor: chooseToastColor(
         state,
       ),
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
     );
 
 Widget showToastCustem({required ToastState state, required String text}) =>
@@ -260,7 +259,7 @@ void showToastShap({
   fToast.showToast(
     child: showToastCustem(state: state, text: text),
     gravity: ToastGravity.CENTER,
-    toastDuration: Duration(seconds: 2),
+    toastDuration: const Duration(seconds: 2),
   );
 }
 

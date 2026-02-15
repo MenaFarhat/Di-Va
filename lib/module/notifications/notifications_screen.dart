@@ -1,22 +1,24 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:diva/layout/profile/profile_screen.dart';
+import 'package:diva/models/Notifications/notifications_model.dart';
+import 'package:diva/models/extensions/date_time_extension.dart';
+import 'package:diva/module/notifications/cubit/notifications_cubit.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/module/show_post/show_post_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ci.dart';
-import 'package:iconify_flutter/icons/clarity.dart';
-import 'package:project1/layout/profile/cubit/profile_cubit.dart';
-import 'package:project1/layout/profile/profile_screen.dart';
-import 'package:project1/models/Notifications/notifications_model.dart';
-import 'package:project1/models/extensions/date_time_extension.dart';
-import 'package:project1/module/notifications/cubit/notifications_cubit.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class NotificationsScreen extends StatelessWidget {
+  const NotificationsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -30,7 +32,7 @@ class NotificationsScreen extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               elevation: 5,
-              title: Text(
+              title: const Text(
                 'Notifications',
               ),
               actions: [
@@ -40,7 +42,7 @@ class NotificationsScreen extends StatelessWidget {
                             onPressed: () {
                               cubit.markAsRead();
                             },
-                            icon: Iconify(
+                            icon: const Iconify(
                               Ci.notification_dot,
                               color: defaultColor,
                               size: 26,
@@ -48,17 +50,17 @@ class NotificationsScreen extends StatelessWidget {
                           )
                         : IconButton(
                             onPressed: () {},
-                            icon: Iconify(
+                            icon: const Iconify(
                               Ci.notification,
                               color: defaultColor,
                               size: 26,
                             ),
                           )
-                    : SizedBox(),
+                    : const SizedBox(),
               ],
             ),
             body: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: cubit.notifications != null
                   ? ListView.builder(
                       itemBuilder: (context, index) => buildnotificationsItem(
@@ -91,7 +93,7 @@ class NotificationsScreen extends StatelessWidget {
                       // ),
                       itemCount: cubit.notifications!.notifications!.length,
                     )
-                  : Center(child: CircularProgressIndicator()),
+                  : const Center(child: CircularProgressIndicator()),
             ),
           );
         },
@@ -153,7 +155,7 @@ Widget buildnotificationsItem({
                     "$HOST/$USERIMAGE/${not.data!.userPhoto}",
                   ),
                 )
-              : CircleAvatar(
+              : const CircleAvatar(
                   radius: 25,
                   backgroundImage: AssetImage(
                     USERIMAGENULL,
@@ -185,7 +187,7 @@ Widget buildnotificationsItem({
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           CircleAvatar(
             radius: isNotRead ? 5 : 0,
           ),

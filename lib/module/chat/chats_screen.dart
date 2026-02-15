@@ -1,25 +1,24 @@
-import 'dart:convert';
+// ignore_for_file: deprecated_member_use
+
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/models/chat/user_message_model.dart';
+import 'package:diva/models/extensions/date_time_extension.dart';
+import 'package:diva/module/chat/chat_details_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/models/extensions/date_time_extension.dart';
-import 'package:project1/models/chat/user_message_model.dart';
-import 'package:project1/module/chat/chat_details_screen.dart';
-import 'package:project1/module/chat/cubit/social_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class ChatsScreen extends StatelessWidget {
+  const ChatsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     var myphoto = MyProfileLayoutCubit.get(context)
@@ -27,11 +26,6 @@ class ChatsScreen extends StatelessWidget {
         .myInfo!
         .personal!
         .photo;
-    String myEmail = MyProfileLayoutCubit.get(context)
-        .myProfileData!
-        .myInfo!
-        .personal!
-        .email!;
     return Scaffold(
       appBar: AppBar(
         leading: myphoto != null
@@ -44,12 +38,12 @@ class ChatsScreen extends StatelessWidget {
               )
             : Padding(
                 padding: EdgeInsets.all(getProportionateScreenHeight(5)),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   backgroundImage: AssetImage(USERIMAGENULL),
                 ),
               ),
         elevation: 3,
-        title: Text(
+        title: const Text(
           'Chat',
         ),
       ),
@@ -64,11 +58,11 @@ class ChatsScreen extends StatelessWidget {
             .snapshots(),
         builder: (context, usersReceiver) {
           return !usersReceiver.hasData
-              ? Center(
+              ? const Center(
                   child: Text('NO USER'),
                 )
               : ListView.separated(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     List<dynamic> users =
                         usersReceiver.data!.docs.elementAt(index).get('user');
@@ -96,12 +90,12 @@ class ChatsScreen extends StatelessWidget {
                             snapshot1: snapshot,
                           );
                         } else {
-                          return SizedBox();
+                          return const SizedBox();
                         }
                       },
                     );
                   },
-                  separatorBuilder: (context, index) => Divider(
+                  separatorBuilder: (context, index) => const Divider(
                     indent: 1,
                   ),
                   itemCount: usersReceiver.data!.docs.length,
@@ -129,7 +123,7 @@ Widget buildChatItem({
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return SizedBox();
+          return const SizedBox();
         } else {
           int massagesIsNotRead = snapshot.data!.docs.length;
           return InkWell(
@@ -164,11 +158,11 @@ Widget buildChatItem({
                               backgroundImage: AssetImage(USERIMAGENULL),
                             ),
                       user.isOnline!
-                          ? CircleAvatar(
+                          ? const CircleAvatar(
                               radius: 6,
                               backgroundColor: Colors.green,
                             )
-                          : CircleAvatar(
+                          : const CircleAvatar(
                               radius: 6,
                               backgroundColor: Colors.grey,
                             ),

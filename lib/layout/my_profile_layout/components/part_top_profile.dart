@@ -1,24 +1,22 @@
+// ignore_for_file: deprecated_member_use, non_constant_identifier_names
+
+import 'package:diva/layout/my_profile_layout/components/image_profile.dart';
+import 'package:diva/layout/profile/cubit/profile_cubit.dart';
+import 'package:diva/models/profile_model.dart';
+import 'package:diva/module/edit_profile/edit_profile_screen.dart';
+import 'package:diva/module/follow/cubit/follow_cubit.dart';
+import 'package:diva/module/follow/followers_screen.dart';
+import 'package:diva/module/follow/following_scareen.dart';
+import 'package:diva/module/promote/promote_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/icons/ion.dart';
-import 'package:project1/layout/my_profile_layout/components/image_profile.dart';
-import 'package:project1/layout/profile/cubit/profile_cubit.dart';
-import 'package:project1/models/profile_model.dart';
-import 'package:project1/module/chat/chat_details_screen.dart';
-import 'package:project1/module/edit_profile/edit_profile_screen.dart';
-import 'package:project1/module/follow/cubit/follow_cubit.dart';
-import 'package:project1/module/promote/payment_screen.dart';
-import 'package:project1/module/promote/promote_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/module/follow/followers_screen.dart';
-import 'package:project1/module/follow/following_scareen.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 
 Widget PartTopProfile({
@@ -36,8 +34,8 @@ Widget PartTopProfile({
       color: Colors.white,
       boxShadow: [
         BoxShadow(
-          color: const Color(0x29000000),
-          offset: const Offset(0, 5),
+          color: Color(0x29000000),
+          offset: Offset(0, 5),
           blurRadius: 30,
           spreadRadius: 0,
         )
@@ -63,10 +61,10 @@ Widget PartTopProfile({
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(flex: 2),
+                const Spacer(flex: 2),
                 Text(
                   data.myInfo!.personal!.name!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.italic,
@@ -77,13 +75,13 @@ Widget PartTopProfile({
                   data.myInfo!.personal!.bio ?? 'HI thir',
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black87,
                     fontStyle: FontStyle.italic,
                     // fontSize: 14,
                   ),
                 ),
-                Spacer(flex: 3),
+                const Spacer(flex: 3),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -95,7 +93,7 @@ Widget PartTopProfile({
                         if (scrollController.hasClients) {
                           scrollController.animateTo(
                             box.size.height,
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeOut,
                           );
                         }
@@ -104,12 +102,12 @@ Widget PartTopProfile({
                         children: [
                           Text(
                             data.posts!.length.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          Text(
+                          const Text(
                             "Post",
                             style: TextStyle(
                               color: Colors.black,
@@ -133,12 +131,12 @@ Widget PartTopProfile({
                         children: [
                           Text(
                             data.myInfo!.followers.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          Text(
+                          const Text(
                             "Followers",
                             style: TextStyle(
                               color: Colors.black,
@@ -163,12 +161,12 @@ Widget PartTopProfile({
                         children: [
                           Text(
                             data.myInfo!.following.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          Text(
+                          const Text(
                             "Following",
                             style: TextStyle(
                               color: Colors.black,
@@ -180,7 +178,7 @@ Widget PartTopProfile({
                     ),
                   ],
                 ),
-                Spacer(flex: 4),
+                const Spacer(flex: 4),
                 isMe
                     ? Row(
                         children: [
@@ -204,7 +202,7 @@ Widget PartTopProfile({
                               function: () {
                                 navigateTo(
                                   context,
-                                  PromoteScreen(),
+                                  const PromoteScreen(),
                                 );
                               },
                               // widget

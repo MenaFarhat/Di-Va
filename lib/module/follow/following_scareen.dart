@@ -1,14 +1,13 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/module/follow/build_follow_pepole.dart';
+import 'package:diva/module/follow/cubit/follow_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/module/follow/build_follow_pepole.dart';
-import 'package:project1/module/follow/cubit/follow_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-
 class FollowingScreen extends StatelessWidget {
   int? userId;
-  FollowingScreen({this.userId});
+  FollowingScreen({super.key, this.userId});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,14 +15,14 @@ class FollowingScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 1.5,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new_rounded),
+            icon: const Icon(Icons.arrow_back_ios_new_rounded),
             onPressed: () {
               Navigator.pop(context);
             },
             color: Colors.black,
           ),
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Following',
             style: TextStyle(
               fontSize: 22,
@@ -42,11 +41,11 @@ class FollowingScreen extends StatelessWidget {
               builder: (context, state) {
                 FollowCubit cubit = FollowCubit.get(context);
                 return state is FollowGetFollowingLoadingStates
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
-                    : cubit.following!.length == 0
-                        ? Center(
+                    : cubit.following!.isEmpty
+                        ? const Center(
                             child: Text(
                               'There are no Following.',
                             ),

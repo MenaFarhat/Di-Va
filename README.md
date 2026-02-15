@@ -1,16 +1,30 @@
-# project1
+# Di-Va
 
-A new Flutter project.
+Di-Va is a social media mobile application developed using Flutter and Dart, designed to provide a smooth and engaging user experience through a modern interface and responsive performance.
 
-## Getting Started
+The project focuses on building scalable mobile application architecture while delivering intuitive navigation and clean UI design aligned with modern social media standards.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Modern and responsive social media interface
+- Smooth navigation and user interaction
+- Clean and scalable application structure
+- Performance-oriented Flutter implementation
+- Cross-platform support (Android & iOS)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Built With
+
+- Flutter
+- Dart
+- Figma
+
+---
+
+## 📂 Project Structure
+
+The project follows a modular structure to ensure maintainability and scalability:
+

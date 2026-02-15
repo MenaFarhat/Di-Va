@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 String HOST = 'http://192.168.1.104:8000';
 String Hos = "192.168.1.104";
 // String HOST = 'http://192.168.43.88:8000';

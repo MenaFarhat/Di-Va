@@ -1,12 +1,13 @@
+// ignore_for_file: avoid_print, must_be_immutable
+
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/shared/components/components.dart';
 
 class PayementScreen extends StatefulWidget {
   int numberOfPost;
-  PayementScreen({
+  PayementScreen({super.key, 
     required this.numberOfPost,
   });
   @override
@@ -26,41 +27,41 @@ class _PayementScreenState extends State<PayementScreen> {
       body: Center(
         child: Column(
           children: [
-            Text(
+            const Text(
               'Confirm the payment',
               style: TextStyle(
                 fontSize: 27.0,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
-            Text(
+            const Text(
               'Please enter the code you received to confirm the payment',
               style: TextStyle(
                 color: Color(0xff7C7D7E),
                 fontSize: 13.0,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: TextFormField(
                 controller: codeController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: 'Enter code', border: OutlineInputBorder()),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(28.0),
-                color: Color(0xff21115C),
+                color: const Color(0xff21115C),
               ),
               width: 120.0,
               child: BlocConsumer<MyProfileLayoutCubit, MyProfileLayoutStates>(
@@ -98,7 +99,7 @@ class _PayementScreenState extends State<PayementScreen> {
                         namperOf: widget.numberOfPost,
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'CONFIRM',
                       style: TextStyle(
                         color: Colors.white,

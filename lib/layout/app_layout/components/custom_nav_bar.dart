@@ -1,15 +1,14 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/module/add_post/gallery_add_post_screen.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/module/add_post/gallery_add_post_screen.dart';
-import 'package:project1/module/chat/cubit/social_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
 
 Widget customNavigationBar({
   Size? size,
@@ -19,7 +18,7 @@ Widget customNavigationBar({
     Container(
       height: getProportionateScreenHeight(70),
       width: SizeConfig.screenWidth,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: customNavigationBarColor,
         boxShadow: [
           BoxShadow(

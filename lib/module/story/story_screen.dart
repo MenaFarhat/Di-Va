@@ -1,22 +1,18 @@
-import 'dart:async';
-import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:dio/dio.dart';
+// ignore_for_file: library_private_types_in_public_api, must_be_immutable
+
+import 'package:diva/models/home_post/home_post_model.dart';
+import 'package:diva/models/story/story_model.dart';
+import 'package:diva/module/story/animated_bar.dart';
+import 'package:diva/module/story/story_user_info.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:project1/models/home_post/home_post_model.dart';
-import 'package:project1/models/story/story_model.dart';
-import 'package:project1/module/story/animated_bar.dart';
-import 'package:project1/module/story/story_user_info.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-
 import 'package:video_player/video_player.dart';
 
 class StoryScreen extends StatefulWidget {
   UserStoryModel? user;
   List<UserStoryModel>? users;
-  StoryScreen({
+  StoryScreen({super.key, 
     required this.user,
     required this.users,
   });
@@ -286,7 +282,7 @@ class _StoryScreenState extends State<StoryScreen>
                           frameBuilder:
                               (context, child, frame, wasSynchronouslyLoaded) {
                             if (frame == null) {
-                              return Center(child: CircularProgressIndicator());
+                              return const Center(child: CircularProgressIndicator());
                             } else {
                               _animController!.forward();
                               return child;
@@ -357,9 +353,7 @@ class _StoryScreenState extends State<StoryScreen>
                               .story![_currentIndex].createdAt,
                           name: widget.users![initialpage].name,
                           profileImageUrl:
-                              widget.users![initialpage].photo != null
-                                  ? widget.users![initialpage].photo
-                                  : null,
+                              widget.users![initialpage].photo,
                         ),
                       ),
                     ],

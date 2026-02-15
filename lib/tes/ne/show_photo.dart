@@ -1,8 +1,10 @@
+// ignore_for_file: deprecated_member_use, must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class ShowPhoto extends StatefulWidget {
   String? image;
-  ShowPhoto({this.image});
+  ShowPhoto({super.key, this.image});
 
   @override
   State<ShowPhoto> createState() => _ShowPhotoState();
@@ -22,7 +24,7 @@ class _ShowPhotoState extends State<ShowPhoto>
     controller = TransformationController();
     animationController=AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     )..addListener(() {controller.value=animation!.value;
     });
   }
@@ -41,7 +43,7 @@ class _ShowPhotoState extends State<ShowPhoto>
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.black,
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.all(8),
             child: Text(
@@ -60,7 +62,7 @@ class _ShowPhotoState extends State<ShowPhoto>
         onDoubleTap: () {
           final position = tapDownDetails!.localPosition;
 
-          final double scale = 3;
+          const double scale = 3;
           final x = -position.dx * (scale - 1);
           final y = -position.dy * (scale - 1);
 
@@ -88,16 +90,14 @@ class _ShowPhotoState extends State<ShowPhoto>
          // maxScale: 2,
          // minScale: 1,
           //clipBehavior: Clip.none,
-          child: Container(
-            child: Center(
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    widget.image!,
-                    fit: BoxFit.cover,
-                  ),
+          child: Center(
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  widget.image!,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

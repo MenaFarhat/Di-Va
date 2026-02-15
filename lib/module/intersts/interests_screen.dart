@@ -1,16 +1,16 @@
+import 'package:diva/layout/app_layout/app_layout.dart';
+import 'package:diva/module/intersts/components/item_Interest.dart';
+import 'package:diva/module/intersts/cubit/intersts_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/module/intersts/components/item_Interest.dart';
-import 'package:project1/module/intersts/cubit/intersts_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/layout/home_layout/home_layout.dart';
-
 import '../../models/interstes/interests_model.dart';
 
 class InterestsScreen extends StatelessWidget {
   static String routeName = "/interests";
+
+  const InterestsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class InterestsScreen extends StatelessWidget {
         child: BlocConsumer<InterstsCubit, InterstsStates>(
           listener: (context, state) {
             if (state is RegisterAddInsterstsSucssesState) {
-              navigateAndFinish(context, AppLayout());
+              navigateAndFinish(context, const AppLayout());
             }
             if (state is RegisterAddInsterstsErrorState) {
               showToast(
@@ -66,7 +66,7 @@ Widget interstScreen({
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Pick your interest :",
                 style: TextStyle(
                   fontWeight: FontWeight.w700,

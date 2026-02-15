@@ -1,14 +1,13 @@
-import 'package:bloc/bloc.dart';
+// ignore_for_file: avoid_print, non_constant_identifier_names
+
 import 'package:dio/dio.dart';
+import 'package:diva/models/error_model%20.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/dio_helper.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:project1/models/error_model%20.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/dio_helper.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
 
 part 'intersts_state.dart';
 
@@ -22,10 +21,10 @@ class InterstsCubit extends Cubit<InterstsStates> {
   void getintest({required List<int> interest}) {
     selected = [];
     selectedForAPI = [];
-    interest.forEach((element) {
+    for (var element in interest) {
       selected.add(element - 1);
       selectedForAPI.add(element);
-    });
+    }
   }
 
   void UpdateInterst({

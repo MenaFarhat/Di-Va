@@ -1,43 +1,28 @@
-import 'dart:developer';
+// ignore_for_file: deprecated_member_use, must_be_immutable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diva/models/chat/message_model.dart';
+import 'package:diva/models/chat/user_message_model.dart';
+import 'package:diva/models/extensions/date_time_extension.dart';
+import 'package:diva/module/chat/cubit/social_cubit.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
-import 'package:iconify_flutter/icons/ph.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/models/chat/message_model.dart';
-import 'package:project1/models/chat/user_message_model.dart';
-import 'package:project1/module/chat/cubit/social_cubit.dart';
-import 'package:project1/module/chat/components/message_item.dart';
-import 'package:project1/models/extensions/date_time_extension.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-
-// String chatRoomId(String user1, String user2) {
-//   if (user1.toLowerCase().codeUnits[0] > user2[0].toLowerCase().codeUnits[0]) {
-//     return "$user1,$user2";
-//   } else {
-//     return "$user2,$user1";
-//   }
-// }
-
 class ChatDetailsScreen extends StatelessWidget {
   int receiverId;
   int senderId;
   String roomId;
   UserMessageModel user;
   AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot;
-  ChatDetailsScreen({
+  ChatDetailsScreen({super.key, 
     required this.snapshot,
     required this.receiverId,
     required this.senderId,
@@ -71,7 +56,7 @@ class ChatDetailsScreen extends StatelessWidget {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   padding: EdgeInsets.symmetric(
                       vertical: getProportionateScreenHeight(10)),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
@@ -91,14 +76,14 @@ class ChatDetailsScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_back_ios_outlined,
                           ),
                           onPressed: () {
                             Navigator.pop(context);
                           },
                         ),
-                        Spacer(flex: 1),
+                        const Spacer(flex: 1),
                         Column(
                           children: [
                             Stack(
@@ -111,17 +96,17 @@ class ChatDetailsScreen extends StatelessWidget {
                                         backgroundImage: NetworkImage(
                                             '$HOST/$USERIMAGE/${user.userPhoto}'),
                                       )
-                                    : CircleAvatar(
+                                    : const CircleAvatar(
                                         radius: 30,
                                         backgroundImage:
                                             AssetImage(USERIMAGENULL),
                                       ),
                                 user.isOnline!
-                                    ? CircleAvatar(
+                                    ? const CircleAvatar(
                                         radius: 7,
                                         backgroundColor: Colors.green,
                                       )
-                                    : CircleAvatar(
+                                    : const CircleAvatar(
                                         radius: 7,
                                         backgroundColor: Colors.grey,
                                       ),
@@ -137,7 +122,7 @@ class ChatDetailsScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Spacer(
+                        const Spacer(
                           flex: 2,
                         ),
                       ],
@@ -153,7 +138,7 @@ class ChatDetailsScreen extends StatelessWidget {
                       .snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
-                      return Flexible(
+                      return const Flexible(
                         child: Center(
                           child: CircularProgressIndicator(),
                         ),
@@ -161,8 +146,8 @@ class ChatDetailsScreen extends StatelessWidget {
                     } else {
                       return Flexible(
                         child: ListView.separated(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          physics: BouncingScrollPhysics(),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          physics: const BouncingScrollPhysics(),
                           reverse: true,
                           itemBuilder: (context, index) {
                             final messages =
@@ -183,7 +168,7 @@ class ChatDetailsScreen extends StatelessWidget {
                             }
                           },
                           separatorBuilder: (context, index) =>
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                           itemCount: snapshot.data!.docs.length,
                         ),
                       );
@@ -200,7 +185,7 @@ class ChatDetailsScreen extends StatelessWidget {
                       horizontal: getProportionateScreenWidth(10),
                       vertical: getProportionateScreenHeight(10),
                     ),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
@@ -214,8 +199,8 @@ class ChatDetailsScreen extends StatelessWidget {
                             minLines: 1,
                             maxLines: 4,
                             controller: messageController,
-                            decoration: InputDecoration(
-                              border: const OutlineInputBorder(
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(30),
                                 ),
@@ -239,7 +224,7 @@ class ChatDetailsScreen extends StatelessWidget {
                               messageController.clear();
                             }
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             IconBroken.Send,
                             size: 25,
                             color: defaultColor,
@@ -281,7 +266,7 @@ buildMessage({
       // ),
       Flexible(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: defaultColor,
             borderRadius: BorderRadiusDirectional.only(
               bottomEnd: Radius.circular(10),
@@ -302,7 +287,7 @@ buildMessage({
             children: [
               Text(
                 model.text!,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
@@ -311,7 +296,7 @@ buildMessage({
               SizedBox(width: getProportionateScreenWidth(4)),
               Text(
                 model.dateTime!.formatTimeINAMPM,
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
           ),
@@ -328,8 +313,6 @@ buildMyMessage({
   required MessageModel model,
   required context,
 }) {
-  String image =
-      MyProfileLayoutCubit.get(context).myProfileData!.myInfo!.personal!.photo!;
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.end,
@@ -340,7 +323,7 @@ buildMyMessage({
       Flexible(
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xff434b56).withOpacity(0.819),
+            color: const Color(0xff434b56).withOpacity(0.819),
             borderRadius: const BorderRadiusDirectional.only(
               bottomStart: Radius.circular(10),
               topEnd: Radius.circular(10),
@@ -365,7 +348,7 @@ buildMyMessage({
               SizedBox(width: getProportionateScreenWidth(4)),
               Text(
                 model.dateTime!.formatTimeINAMPM,
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               SizedBox(width: getProportionateScreenWidth(4)),
               Iconify(

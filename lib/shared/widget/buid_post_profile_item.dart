@@ -1,5 +1,5 @@
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/components/size_config.dart';
 
 Widget buidPostProfileItem({
   required void Function()? onPress,

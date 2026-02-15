@@ -1,4 +1,3 @@
-import 'package:project1/models/user_data_model.dart';
 
 class RegisterModel {
   UserDataModel1? user;

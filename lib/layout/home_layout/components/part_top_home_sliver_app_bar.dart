@@ -1,16 +1,16 @@
+import 'package:diva/module/search/custom_search_delegate_secreen.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/cubit/app_cubit.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/profile/profile_screen.dart';
-import 'package:project1/module/search/custom_search_delegate_secreen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/cubit/app_cubit.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class PartTopHomeSliverAppBar extends StatelessWidget {
+  const PartTopHomeSliverAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -45,10 +45,10 @@ class PartTopHomeSliverAppBar extends StatelessWidget {
               delegate: CustomSearchDelegateSecreen(
                 // items: People,
                 searchLabel: 'Search people',
-                suggestion: Center(
+                suggestion: const Center(
                   child: Text('Filter people by name'),
                 ),
-                failure: Center(
+                failure: const Center(
                   child: Text('No person found :('),
                 ),
                 // filter: (person) => [person.name],
@@ -68,7 +68,7 @@ class PartTopHomeSliverAppBar extends StatelessWidget {
                             "$HOST/$USERIMAGE/${person.photo}",
                           ),
                         )
-                      : CircleAvatar(
+                      : const CircleAvatar(
                           backgroundImage: AssetImage(
                             USERIMAGENULL,
                           ),
@@ -77,7 +77,7 @@ class PartTopHomeSliverAppBar extends StatelessWidget {
               ),
             );
           },
-          icon: Icon(
+          icon: const Icon(
             // IconBroken.Search,
             FluentIcons.people_search_24_regular,
             // .search,
@@ -85,7 +85,7 @@ class PartTopHomeSliverAppBar extends StatelessWidget {
             color: defaultColor,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
       ],

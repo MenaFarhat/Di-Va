@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class AnimatedBar extends StatelessWidget {
@@ -5,7 +7,7 @@ class AnimatedBar extends StatelessWidget {
   final int position;
   final int currentIndex;
 
-  const AnimatedBar({
+  const AnimatedBar({super.key, 
     required this.animController,
     required this.position,
     required this.currentIndex,

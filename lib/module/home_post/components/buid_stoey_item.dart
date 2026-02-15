@@ -1,8 +1,8 @@
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget buidStoeyItem({
   required void Function()? onPress,
@@ -21,7 +21,7 @@ Widget buidStoeyItem({
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 // borderRadius: BorderRadius.circular(30),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment(0.5, 0),
                   end: Alignment(0.5, 1),
                   colors: [
@@ -42,7 +42,7 @@ Widget buidStoeyItem({
                       ),
                       radius: 5,
                     )
-                  : CircleAvatar(
+                  : const CircleAvatar(
                       backgroundImage: AssetImage(
                         USERIMAGENULL,
                       ),
@@ -57,7 +57,7 @@ Widget buidStoeyItem({
             name!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xff787c81),
               fontSize: 13,
             ),

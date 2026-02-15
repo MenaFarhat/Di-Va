@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
@@ -44,32 +46,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  VoidCallback? _showPersistantBottomSheetCallBack;
 
-  void _showBottomSheet() {
-    setState(() {
-      _showPersistantBottomSheetCallBack = null;
-    });
-
-    // scaffoldKey.currentState!
-    //     .showBottomSheet(
-    //       (context) {
-    //         return null; //settingsBottomSheet(context);
-    //       },
-    //     )
-    //     .closed
-    //     .whenComplete(() {
-    //       if (mounted) {
-    //         print(mounted);
-    //         setState(() {
-    //           _showPersistantBottomSheetCallBack = _showBottomSheet;
-    //         });
-    //       }
-    //     });
-  }
 
   late final PageController pageController;
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   int pageNo = 0;
 
   Timer? carasouelTmer;
@@ -90,7 +70,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    _showPersistantBottomSheetCallBack = _showBottomSheet;
     pageController = PageController(initialPage: 0, viewportFraction: 0.85);
     carasouelTmer = getTimer();
     _scrollController.addListener(() {
@@ -138,7 +117,7 @@ class _HomeState extends State<Home> {
                   selectedTileColor: Colors.indigoAccent.shade100,
                   title: Text(
                     "Welcome Back",
-                    style: Theme.of(context).textTheme.subtitle1!.merge(
+                    style: Theme.of(context).textTheme.titleMedium!.merge(
                           const TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 18.0,
@@ -147,7 +126,7 @@ class _HomeState extends State<Home> {
                   ),
                   subtitle: Text(
                     "A Greet welcome to you all.",
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   trailing: PopUpMen(
                     menuList: const [
@@ -276,6 +255,11 @@ class _HomeState extends State<Home> {
         ),
       ),
       bottomNavigationBar: AnimatedContainer(
+        duration: const Duration(
+          milliseconds: 800,
+        ),
+        curve: Curves.easeInOutSine,
+        height: showBtmAppBr ? 70 : 0,
         child: BottomAppBar(
           notchMargin: 8.0,
           shape: const CircularNotchedRectangle(),
@@ -312,11 +296,6 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        duration: const Duration(
-          milliseconds: 800,
-        ),
-        curve: Curves.easeInOutSine,
-        height: showBtmAppBr ? 70 : 0,
       ),
     );
   }
@@ -465,7 +444,7 @@ class _GridBState extends State<GridB> {
                   children: [
                     Text(
                       "${gridMap.elementAt(index)['title']}",
-                      style: Theme.of(context).textTheme.subtitle1!.merge(
+                      style: Theme.of(context).textTheme.titleMedium!.merge(
                             const TextStyle(
                               fontWeight: FontWeight.w700,
                             ),
@@ -476,7 +455,7 @@ class _GridBState extends State<GridB> {
                     ),
                     Text(
                       "${gridMap.elementAt(index)['price']}",
-                      style: Theme.of(context).textTheme.subtitle2!.merge(
+                      style: Theme.of(context).textTheme.titleSmall!.merge(
                             TextStyle(
                               fontWeight: FontWeight.w700,
                               color: Colors.grey.shade500,
@@ -490,13 +469,13 @@ class _GridBState extends State<GridB> {
                       children: [
                         IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             CupertinoIcons.heart,
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             CupertinoIcons.cart,
                           ),
                         ),

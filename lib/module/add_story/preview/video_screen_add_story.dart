@@ -1,18 +1,20 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:io';
 
+import 'package:diva/layout/app_layout/app_layout.dart';
+import 'package:diva/models/story/story_model.dart';
+import 'package:diva/module/add_story/cubit/add_story_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/models/story/story_model.dart';
-import 'package:project1/module/add_story/cubit/add_story_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoScreenAddStory extends StatefulWidget {
   final File? videoFile;
 
-  const VideoScreenAddStory({
+  const VideoScreenAddStory({super.key, 
     required this.videoFile,
   });
 
@@ -49,10 +51,10 @@ class _VideoScreenAddStoryState extends State<VideoScreenAddStory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             IconBroken.Arrow___Left_2,
             size: 30,
             color: Colors.black,
@@ -69,7 +71,7 @@ class _VideoScreenAddStoryState extends State<VideoScreenAddStory> {
               child: BlocConsumer<AddStoryCubit, AddStoryStates>(
                 listener: (context, state) {
                   if (state is AddStoryPostSucssesState) {
-                    navigateAndFinish(context, AppLayout());
+                    navigateAndFinish(context, const AppLayout());
                   }
                 },
                 builder: (context, state) {
@@ -123,7 +125,7 @@ class _VideoScreenAddStoryState extends State<VideoScreenAddStory> {
                         });
                       },
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.black38,
                           shape: BoxShape.circle,
                         ),

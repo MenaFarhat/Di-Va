@@ -1,9 +1,7 @@
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/tes/ne/add_post.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/tes/ne/add_post.dart';
-import 'package:project1/tes/s/main_screen.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Promotiomscreen extends StatefulWidget {
   const Promotiomscreen({Key? key}) : super(key: key);
@@ -20,7 +18,7 @@ class _PromotiomscreenState extends State<Promotiomscreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/interests/art.jpg"),
             )
@@ -31,23 +29,23 @@ class _PromotiomscreenState extends State<Promotiomscreen> {
                 children: [
                   IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back_ios_new_rounded,
                         size: 25,
                       )),
-                  Text(
+                  const Text(
                     "Promotion Plan",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Spacer(),
+                  const Spacer(),
                     Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: InkWell(
                       onTap: () {},
-                      child: Text(
+                      child: const Text(
                         "SKIP",
                         style: TextStyle(
                           fontSize: 20,
@@ -59,13 +57,13 @@ class _PromotiomscreenState extends State<Promotiomscreen> {
                   )
                 ],
               ),
-              SizedBox(height: 70),
+              const SizedBox(height: 70),
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                           color: Colors.black45,
                           offset: Offset(0, 4),
@@ -74,22 +72,20 @@ class _PromotiomscreenState extends State<Promotiomscreen> {
                   ),
                   child: SwipeableButtonView(
                     buttonText: 'SLIDE TO OPEN PLAN',
-                    buttontextstyle: TextStyle(
+                    buttontextstyle: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic,
                         color: Colors.white),
                     buttonColor: Colors.white,
-                    buttonWidget: Container(
-                      child: Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: defaultColor,
-                      ),
+                    buttonWidget: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: defaultColor,
                     ),
                     activeColor: defaultColor,
                     isFinished: isFinished,
                     onWaitingProcess: () {
-                      Future.delayed(Duration(seconds: 2), () {
+                      Future.delayed(const Duration(seconds: 2), () {
                         setState(() {
                           isFinished = true;
                         });
@@ -98,7 +94,7 @@ class _PromotiomscreenState extends State<Promotiomscreen> {
                     onFinish: () async {
                       await Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
-                        return Addpost();
+                        return const Addpost();
                       }));
                       setState(() {
                         isFinished = false;
@@ -107,7 +103,7 @@ class _PromotiomscreenState extends State<Promotiomscreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 120),
+              const SizedBox(height: 120),
             ],
           ),
         ),

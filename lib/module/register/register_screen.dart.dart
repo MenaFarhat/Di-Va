@@ -1,17 +1,17 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously, must_be_immutable
+
+import 'package:diva/models/register/list_model.dart';
+import 'package:diva/module/add_photo/add_photo_register_screen.dart';
+import 'package:diva/module/login/login_screen.dart';
+import 'package:diva/module/register/cubit/register_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/models/register/list_model.dart';
-import 'package:project1/models/user_data_model.dart';
-import 'package:project1/module/add_photo/add_photo_register_screen.dart';
-import 'package:project1/module/intersts/interests_screen.dart';
-import 'package:project1/module/login/login_screen.dart';
-import 'package:project1/module/register/cubit/register_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/styes/colors.dart';
+
 
 class RegisterScreen extends StatelessWidget {
   static String routeName = "/register";
@@ -29,6 +29,8 @@ class RegisterScreen extends StatelessWidget {
   FocusNode? pinEmailFocusNode = FocusNode();
   FocusNode? pinPasswordFocusNode = FocusNode();
   FocusNode? pinConfirmPasswordFocusNode = FocusNode();
+
+  RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,7 @@ class RegisterScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(height: getProportionateScreenHeight(55)),
-                      Text(
+                      const Text(
                         "Sign Up",
                         style: TextStyle(
                           fontSize: 32,
@@ -84,7 +86,7 @@ class RegisterScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: getProportionateScreenHeight(10)),
-                      Text(
+                      const Text(
                         "Add your details to sign up",
                         style: TextStyle(
                           fontSize: 16,
@@ -263,7 +265,7 @@ class RegisterScreen extends StatelessWidget {
                               confirmPassword: confirmPasswordController.text,
                               gender: genderController == 'Male' ? 2 : 1,
                               date:
-                                  "${yearController}/${monthController}/${dayController}",
+                                  "$yearController/$monthController/$dayController",
                               fcm: 'sss', // CacheHelper.getData(key: FCM),
                             );
                             // }
@@ -274,7 +276,7 @@ class RegisterScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Aleady have an Account?",
                             style: TextStyle(
                               fontSize: 16,
@@ -286,7 +288,7 @@ class RegisterScreen extends StatelessWidget {
                               Navigator.pushReplacementNamed(
                                   context, LoginScreen.routeName);
                             },
-                            child: Text(
+                            child: const Text(
                               "Login",
                               style: TextStyle(
                                 fontSize: 16,

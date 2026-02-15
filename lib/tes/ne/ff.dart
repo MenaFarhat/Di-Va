@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class MyHomePagemm extends StatelessWidget {
+  const MyHomePagemm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,13 +11,13 @@ class MyHomePagemm extends StatelessWidget {
           height: 300,
           width: 202,
     
-          color: Color.fromARGB(255, 161, 8, 8),
+          color: const Color.fromARGB(255, 161, 8, 8),
         ),
          Container(
           height: 300,
           width: 202,
     
-          color: Color(0xFFF8C304),
+          color: const Color(0xFFF8C304),
         ),
          Container(
           height: 300,
@@ -28,19 +29,19 @@ class MyHomePagemm extends StatelessWidget {
           height: 300,
           width: 202,
     
-          color: Color(0xFF10B48E),
+          color: const Color(0xFF10B48E),
         ),
          Container(
           height: 300,
           width: 202,
     
-          color: Color(0xFF7077FF),
+          color: const Color(0xFF7077FF),
         ),
         Container(
           height: 300,
           width: 202,
     
-          color: Color(0xff206491),
+          color: const Color(0xff206491),
         ),
        
         
@@ -51,7 +52,7 @@ class MyHomePagemm extends StatelessWidget {
           height: 300,
           width: 202,
     
-          color: Color(0xff400F19),
+          color: const Color(0xff400F19),
         ),
       
          Container(

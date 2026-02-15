@@ -1,13 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:diva/module/add_story/camera/camera_add_story_screen.dart';
+import 'package:diva/module/add_story/cubit/add_story_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/module/add_story/camera/camera_add_story_screen.dart';
-import 'package:project1/module/add_story/cubit/add_story_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
+
 
 Widget albumBottomSheet({AddStoryCubit? cubit, double? height}) => SizedBox(
       height: height,
@@ -32,14 +32,15 @@ Widget albumBottomSheet({AddStoryCubit? cubit, double? height}) => SizedBox(
                     builder: (context, snapshot) {
                       final bytes = snapshot.data;
 
-                      if (bytes == null)
+                      if (bytes == null) {
                         return SizedBox(
                           height: getProportionateScreenHeight(65),
                           width: getProportionateScreenWidth(65),
-                          child: Center(
+                          child: const Center(
                             child: CircularProgressIndicator(),
                           ),
                         );
+                      }
                       return Stack(
                         alignment: AlignmentDirectional.center,
                         children: [
@@ -60,11 +61,11 @@ Widget albumBottomSheet({AddStoryCubit? cubit, double? height}) => SizedBox(
                                   .image!.type ==
                               AssetType.video)
                             Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.black38,
                                 shape: BoxShape.circle,
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.play_arrow,
                                 color: Colors.white,
                               ),

@@ -1,15 +1,17 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:diva/module/add_story/preview/image_screen_add_story.dart';
+import 'package:diva/module/add_story/preview/video_screen_add_story.dart';
+import 'package:diva/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/module/add_story/preview/image_screen_add_story.dart';
-import 'package:project1/module/add_story/preview/video_screen_add_story.dart';
-import 'package:project1/shared/components/components.dart';
 
 class AssetThumbnailAddStory extends StatelessWidget {
   final AssetEntity? asset;
-  AssetThumbnailAddStory({
+  const AssetThumbnailAddStory({super.key, 
     required this.asset,
   });
 
@@ -19,7 +21,7 @@ class AssetThumbnailAddStory extends StatelessWidget {
       future: asset!.thumbnailData,
       builder: (_, snapshot) {
         final bytes = snapshot.data;
-        if (bytes == null) return Center(child: CircularProgressIndicator());
+        if (bytes == null) return const Center(child: CircularProgressIndicator());
         return InkWell(
           onTap: () {
             asset!.file.then((value) {
@@ -49,11 +51,11 @@ class AssetThumbnailAddStory extends StatelessWidget {
               if (asset!.type == AssetType.video)
                 Center(
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.black38,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.play_arrow,
                       color: Colors.white,
                     ),

@@ -1,13 +1,10 @@
+import 'package:diva/models/post_model.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/module/show_post/show_post_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ph.dart';
-import 'package:project1/models/post_model.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget buidPostProfileItem({
   required PostModel post,

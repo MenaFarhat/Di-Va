@@ -1,13 +1,10 @@
+import 'package:diva/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
+import 'package:diva/models/follow_model.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/models/follow_model.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-
-import 'package:project1/shared/styes/colors.dart';
-
 Widget peopleBlockBottomSheet(context) {
   MyProfileLayoutCubit.get(context).blocking();
   return Column(
@@ -26,7 +23,7 @@ Widget peopleBlockBottomSheet(context) {
 
           return Expanded(
             child: state is MyProfileBlockingLoadingStates
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : ListView.separated(
@@ -35,7 +32,7 @@ Widget peopleBlockBottomSheet(context) {
                       person: cubit.blockingPeople![index],
                       cubit: cubit,
                     ),
-                    separatorBuilder: (context, index) => Divider(
+                    separatorBuilder: (context, index) => const Divider(
                       height: 10,
                       thickness: 2,
                       // indent: MediaQuery.of(context).size.width / 4, //- 100,
@@ -70,7 +67,7 @@ Widget blockPeopleItem({
                   "$HOST/$USERIMAGE/${person.photo!}",
                 ),
               )
-            : CircleAvatar(
+            : const CircleAvatar(
                 backgroundImage: AssetImage(
                   USERIMAGENULL,
                 ),
@@ -79,14 +76,14 @@ Widget blockPeopleItem({
       onPressed: () {
         cubit.uNblockUser(userId: person.userId);
       },
-      icon: Icon(
+      icon: const Icon(
         Icons.person_off_outlined,
       ),
       color: defaultColor,
     ),
     title: Text(
       person.name!,
-      style: TextStyle(
+      style: const TextStyle(
         fontStyle: FontStyle.italic,
       ),
     ),

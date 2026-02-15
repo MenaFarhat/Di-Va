@@ -1,21 +1,19 @@
+import 'package:diva/module/add_post/cubit/add_post_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/module/add_post/cubit/add_post_cubit.dart';
-
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-
 Widget choosePostImageButtomSheet({
-  required AddPostCubit cubit,
+  required AddPostCubit? cubit,
   required BuildContext context,
 }) {
   SizeConfig().init(context);
   return Container(
     height: getProportionateScreenHeight(110),
     width: SizeConfig.screenWidth,
-    margin: EdgeInsets.symmetric(vertical: 20),
+    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       children: [
-        Text(
+        const Text(
           "Choose Photo",
           style: TextStyle(
             fontSize: 25,
@@ -32,12 +30,12 @@ Widget choosePostImageButtomSheet({
                 Navigator.pop(context);
                 // cubit.getAddImage(source: ImageSource.camera);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.camera,
                 color: defaultColor,
                 size: 30,
               ),
-              label: Text(
+              label: const Text(
                 "Camera",
                 style: TextStyle(
                   color: Colors.black,
@@ -50,12 +48,12 @@ Widget choosePostImageButtomSheet({
                 Navigator.pop(context);
                 // cubit.getAddImage(source: ImageSource.gallery);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.image,
                 color: defaultColor,
                 size: 30,
               ),
-              label: Text(
+              label: const Text(
                 "Gallery",
                 style: TextStyle(
                   color: Colors.black,

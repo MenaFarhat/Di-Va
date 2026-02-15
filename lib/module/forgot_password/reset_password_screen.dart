@@ -1,15 +1,19 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/module/forgot_password/confirm_screen.dart';
+import 'package:diva/module/forgot_password/cubit/forgot_password_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/module/forgot_password/confirm_screen.dart';
-import 'package:project1/module/forgot_password/cubit/forgot_password_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   static String routeName = "/resetPassword";
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
+
+  ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class ResetPasswordScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: getProportionateScreenHeight(38)),
-                  Text(
+                  const Text(
                     "Reset Password",
                     style: TextStyle(
                       fontSize: 30,
@@ -34,7 +38,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: getProportionateScreenHeight(12)),
-                  Text(
+                  const Text(
                     "Please enter your email to receive a \ncode to create a new password via email",
                     style: TextStyle(
                       fontSize: 14,

@@ -1,21 +1,21 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously, must_be_immutable
+
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:diva/module/add_post/add_post_screen.dart';
+import 'package:diva/module/camera/asset_thumbnail.dart';
+import 'package:diva/module/camera/camera_screen.dart';
+import 'package:diva/module/camera/components/components.dart';
+import 'package:diva/module/camera/cubit/image_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/module/add_post/add_post_screen.dart';
-import 'package:project1/module/camera/asset_thumbnail.dart';
-import 'package:project1/module/camera/camera_screen.dart';
-import 'package:project1/module/camera/components/components.dart';
-import 'package:project1/module/camera/cubit/image_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/routes/routes.dart';
-
 class GalleryAddPostScreen extends StatelessWidget {
   static String routeName = "/GalleryAddPostScreen";
   File? image;
-  GalleryAddPostScreen({this.image});
+  GalleryAddPostScreen({super.key, this.image});
   GlobalKey keyForBack = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class GalleryAddPostScreen extends StatelessWidget {
       create: (context) => ImageCubit()..getAlbums(image: image),
       child: BlocConsumer<ImageCubit, ImageStates>(
         listener: (context, state) {
-          ImageCubit cubit = ImageCubit().get(context);
+          ImageCubit().get(context);
           // if (state is ImageGetCurrentImageSucssesState) {
           //   cubit.changeIsPhoto(true);
           //   print(ImageCubit().get(context).isphoto);
@@ -39,7 +39,7 @@ class GalleryAddPostScreen extends StatelessWidget {
             child: Scaffold(
               body: NestedScrollView(
                 floatHeaderSlivers: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 headerSliverBuilder: (context, innerBoxIsScrolled) {
                   return [
                     defaultSliverAppBarTopToGallery(
@@ -60,7 +60,7 @@ class GalleryAddPostScreen extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: state is! ImageGetCurrentImageSucssesState
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : cubit.currentImage != null
@@ -73,7 +73,7 @@ class GalleryAddPostScreen extends StatelessWidget {
                                 : SizedBox(
                                     width: double.infinity,
                                     height: getProportionateScreenHeight(295),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                           'Oops There are no pictures in this Album'),
                                     ),
@@ -96,17 +96,18 @@ class GalleryAddPostScreen extends StatelessWidget {
                         });
                       },
                       onChangedDropdownButton: (String? value) {
-                        if (state is ImageGetCurrentImageSucssesState)
+                        if (state is ImageGetCurrentImageSucssesState) {
                           cubit.getdropdownValue(value);
+                        }
                       },
                     ),
                   ];
                 },
                 body: Center(
                   child: state is! ImageGetCurrentImageSucssesState
-                      ? CircularProgressIndicator()
+                      ? const CircularProgressIndicator()
                       : cubit.imageFromAlbum!.isEmpty
-                          ? SizedBox(
+                          ? const SizedBox(
                               width: 329,
                               height: 295,
                               child: Center(
@@ -119,7 +120,7 @@ class GalleryAddPostScreen extends StatelessWidget {
                               // physics: const NeverScrollableScrollPhysics(),
                               // shrinkWrap: true,
                               gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 3,
                                 crossAxisSpacing: 1,
                                 mainAxisSpacing: 1,

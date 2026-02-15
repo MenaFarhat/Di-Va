@@ -1,16 +1,12 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
+
+import 'package:diva/models/comment_model.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
+import 'package:diva/shared/styes/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/home_layout/cubit/home_layout_cubit.dart';
-import 'package:project1/models/comment_model.dart';
-import 'package:project1/module/edit_post/edit_post_screen.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
 
 Widget settingsCommentBottomsheet({
   required context,
@@ -35,12 +31,12 @@ Widget settingsCommentBottomsheet({
         //     ShowPostCubit cubit = ShowPostCubit.get(context);
         //     return
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             IconBroken.Edit,
             color: defaultColor,
             size: 30,
           ),
-          title: Text(
+          title: const Text(
             'Edit',
             style: TextStyle(
               fontSize: 16,
@@ -55,7 +51,7 @@ Widget settingsCommentBottomsheet({
                 TextEditingController controller =
                     TextEditingController(text: comment!.content);
                 return AlertDialog(
-                  title: Text("Edit your coment"),
+                  title: const Text("Edit your coment"),
                   content: TextFormField(
                     controller: controller,
                   ),
@@ -67,7 +63,7 @@ Widget settingsCommentBottomsheet({
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: Text(
+                          child: const Text(
                             "Cancel",
                             style: TextStyle(
                                 fontSize: 16,
@@ -94,7 +90,7 @@ Widget settingsCommentBottomsheet({
                                   );
                                 }
                               },
-                              child: Text(
+                              child: const Text(
                                 "Update",
                                 style: TextStyle(
                                   fontSize: 16,
@@ -118,12 +114,12 @@ Widget settingsCommentBottomsheet({
         ),
         // ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.delete_outline_rounded,
             color: Colors.red,
             size: 30,
           ),
-          title: Text(
+          title: const Text(
             'Delete',
             style: TextStyle(
               fontSize: 16,
@@ -137,8 +133,8 @@ Widget settingsCommentBottomsheet({
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text("Delete your coment"),
-                  content: Text("Are you sure?"),
+                  title: const Text("Delete your coment"),
+                  content: const Text("Are you sure?"),
                   actions: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,7 +143,7 @@ Widget settingsCommentBottomsheet({
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: Text(
+                          child: const Text(
                             "Cancel",
                             style: TextStyle(
                                 fontSize: 16,
@@ -171,7 +167,7 @@ Widget settingsCommentBottomsheet({
                                   index: index,
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 "OK",
                                 style: TextStyle(
                                   fontSize: 16,

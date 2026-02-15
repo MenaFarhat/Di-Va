@@ -1,15 +1,5 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:project1/module/explore/explore_screen.dart';
 
-import 'package:project1/module/home_post/home_post_screen.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/tes/ne/add_post.dart';
 
-import 'package:project1/tes/ne/profile.dart';
-import 'package:project1/tes/ne/sittings.dart';
 
 // class MainScreen1 extends StatefulWidget {
 //   static String routeName = "/main";

@@ -1,14 +1,16 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:diva/models/error_model%20.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/dio_helper.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/models/error_model%20.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/dio_helper.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
 
 part 'add_story_state.dart';
 
@@ -77,7 +79,7 @@ class AddStoryCubit extends Cubit<AddStoryStates> {
     emit(AddStoryGetAllImagesFromAlbumInitialState());
     imagesFromAlbum = [];
     imagesFromAlbum!
-        .add(AssetEntity(id: 'id', typeInt: 1, width: 1, height: 1));
+        .add(const AssetEntity(id: 'id', typeInt: 1, width: 1, height: 1));
 
     currentAlbum!
         .getAssetListRange(

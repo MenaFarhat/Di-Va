@@ -1,10 +1,10 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/module/change_password/cubit/change_password_cubit.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/home_layout/home_layout.dart';
-import 'package:project1/module/change_password/cubit/change_password_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   var oldPasswordController = TextEditingController();
@@ -14,6 +14,8 @@ class ChangePasswordScreen extends StatelessWidget {
   FocusNode? pinNewConfirmPasswordFocusNode = FocusNode();
 
   var formKey = GlobalKey<FormState>();
+
+  ChangePasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +45,12 @@ class ChangePasswordScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
                   ),
                   color: Colors.black,
                 ),
-                title: Text(
+                title: const Text(
                   'Change Password',
                   style: TextStyle(
                     color: Colors.black,
@@ -159,7 +161,7 @@ class ChangePasswordScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Image(
+                      const Image(
                         image: AssetImage("assets/images/reset-password.png"),
                         fit: BoxFit.cover,
                       ),

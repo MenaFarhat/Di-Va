@@ -1,8 +1,8 @@
+// ignore_for_file: file_names
+
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/intersts/cubit/intersts_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget buildInterestItem({
   int? index,
@@ -31,7 +31,7 @@ Widget buildInterestItem({
                       ),
                       fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(19),
                     ),
                     color: Colors.black,
@@ -52,7 +52,7 @@ Widget buildInterestItem({
                       ),
                       fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(19),
                     ),
                   ),
@@ -63,7 +63,7 @@ Widget buildInterestItem({
             Positioned(
               top: getProportionateScreenHeight(5),
               right: getProportionateScreenWidth(5),
-              child: Icon(
+              child: const Icon(
                 Icons.check_circle,
                 color: defaultColor,
               ),
@@ -73,7 +73,7 @@ Widget buildInterestItem({
             left: getProportionateScreenWidth(15),
             child: Text(
               "$interestsName",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 color: Color(0xfff0f1f5),
                 fontWeight: FontWeight.w700,

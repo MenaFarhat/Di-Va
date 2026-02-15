@@ -1,17 +1,17 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/module/forgot_password/cubit/forgot_password_cubit.dart';
+import 'package:diva/module/welcom/welcom_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/module/forgot_password/cubit/forgot_password_cubit.dart';
-import 'package:project1/module/welcom/welcom_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
 
-import 'package:project1/layout/home_layout/home_layout.dart';
 
 class NewPasswordScreen extends StatelessWidget {
   String? email;
-  NewPasswordScreen({required this.email});
+  NewPasswordScreen({super.key, required this.email});
   var formKey = GlobalKey<FormState>();
 
   var passwordController = TextEditingController();
@@ -30,7 +30,7 @@ class NewPasswordScreen extends StatelessWidget {
               state: ToastState.SUCCESS,
             );
             AppLayoutCubit.get(context).changeBottomNav(0);
-            navigateAndFinish(context, WelcomScreen());
+            navigateAndFinish(context, const WelcomScreen());
           }
           if (state is NewPasswordErrorState) {
             showToast(
@@ -54,13 +54,11 @@ class NewPasswordScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             SizedBox(height: getProportionateScreenHeight(50)),
-                            Container(
-                              child: Text(
-                                "New Password",
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                ),
+                            const Text(
+                              "New Password",
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.black,
                               ),
                             ),
                             SizedBox(height: getProportionateScreenHeight(38)),
@@ -130,7 +128,7 @@ class NewPasswordScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       height: getProportionateScreenHeight(378),
-                      child: Image(
+                      child: const Image(
                         image: AssetImage("assets/images/newpassword.png"),
                         //fit: BoxFit.cover,
                       ),

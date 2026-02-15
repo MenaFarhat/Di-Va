@@ -1,27 +1,13 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/module/follow/build_follow_pepole.dart';
+import 'package:diva/module/follow/cubit/follow_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ph.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/models/follow_model.dart';
-import 'package:project1/module/follow/build_follow_pepole.dart';
-import 'package:project1/module/follow/cubit/follow_cubit.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-
 class FollowersScreen extends StatelessWidget {
   int? userId;
-  FollowersScreen({this.userId});
+  FollowersScreen({super.key, this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +16,14 @@ class FollowersScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 1.5,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new_rounded),
+            icon: const Icon(Icons.arrow_back_ios_new_rounded),
             onPressed: () {
               Navigator.pop(context);
             },
             color: Colors.black,
           ),
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Followers',
             style: TextStyle(
               fontSize: 22,
@@ -56,11 +42,11 @@ class FollowersScreen extends StatelessWidget {
               builder: (context, state) {
                 FollowCubit cubit = FollowCubit.get(context);
                 return state is FollowGetFollowersLoadingStates
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
-                    : cubit.followers!.length == 0
-                        ? Center(
+                    : cubit.followers!.isEmpty
+                        ? const Center(
                             child: Text(
                               'There are no Followers.',
                             ),

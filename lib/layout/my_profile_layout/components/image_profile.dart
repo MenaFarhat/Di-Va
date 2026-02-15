@@ -1,9 +1,8 @@
+import 'package:diva/layout/my_profile_layout/components/custemImageProfile.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/layout/my_profile_layout/components/custem_image_profile.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget imageProfile({
   required BuildContext context,
@@ -24,12 +23,12 @@ Widget imageProfile({
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       FluentIcons.image_48_filled,
                       color: defaultColor,
                       size: 30,
                     ),
-                    title: Text(
+                    title: const Text(
                       'Show Profile photo',
                       style: TextStyle(
                         fontSize: 16,
@@ -41,12 +40,12 @@ Widget imageProfile({
                     },
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.camera_outlined,
                       color: defaultColor,
                       size: 30,
                     ),
-                    title: Text(
+                    title: const Text(
                       'Show story',
                       style: TextStyle(
                         fontSize: 16,

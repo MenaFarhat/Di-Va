@@ -1,12 +1,8 @@
-import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:project1/models/home_post/home_post_model.dart';
 
 part 'edit_post_state.dart';
 
@@ -60,4 +56,6 @@ class EditPostCubit extends Cubit<EditPostStates> {
       selectedForAPI.add(element + 1);
     });
   }
+
+  void deletePostEditImage() {}
 }

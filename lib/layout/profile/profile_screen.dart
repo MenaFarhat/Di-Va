@@ -1,32 +1,19 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:diva/layout/my_profile_layout/components/part_top_profile.dart';
+import 'package:diva/layout/my_profile_layout/components/part_top_profile_sliver_app_bar.dart';
+import 'package:diva/layout/my_profile_layout/components/tab_bar_sliver_app_bar.dart';
+import 'package:diva/layout/profile/cubit/profile_cubit.dart';
+import 'package:diva/module/profile_post/profile_post_sceen.dart';
+import 'package:diva/module/profile_prometed/profile_prometed_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/components/part_top_profile.dart';
-
-import 'package:project1/layout/my_profile_layout/components/part_top_profile_sliver_app_bar.dart';
-import 'package:project1/layout/my_profile_layout/components/sttings_bottom_shet.dart/custem_language_meun_shape_border.dart';
-import 'package:project1/layout/my_profile_layout/components/sttings_bottom_shet.dart/language_item.dart';
-import 'package:project1/layout/my_profile_layout/components/sttings_bottom_shet.dart/settings_bottom_sheet.dart';
-import 'package:project1/layout/my_profile_layout/components/tab_bar_sliver_app_bar.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/layout/profile/components/menu_profile.dart';
-import 'package:project1/layout/profile/cubit/profile_cubit.dart';
-import 'package:project1/models/Language.dart';
-
-import 'package:project1/module/profile_post/profile_post_sceen.dart';
-import 'package:project1/module/profile_prometed/profile_prometed_screen.dart';
-import 'package:project1/shared/components/components.dart';
-
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
 
 class ProfileScreen extends StatelessWidget {
   int? userId;
-  ProfileScreen({
+  ProfileScreen({super.key, 
     required this.userId,
   });
 
@@ -68,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
                           showMenu(
                             context: context,
                             position:
-                                RelativeRect.fromLTRB(double.infinity, 0, 0, 0),
+                                const RelativeRect.fromLTRB(double.infinity, 0, 0, 0),
                             items: [
                               PopupMenuItem(
                                 child: ListTile(
@@ -89,11 +76,11 @@ class ProfileScreen extends StatelessWidget {
                                       },
                                     );
                                   },
-                                  leading: Icon(
+                                  leading: const Icon(
                                     Icons.block,
                                     color: Colors.red,
                                   ),
-                                  title: Text(
+                                  title: const Text(
                                     'Block',
                                     style: TextStyle(
                                       color: Colors.red,
@@ -108,7 +95,7 @@ class ProfileScreen extends StatelessWidget {
                         keyForBack: keyForBack,
                         icon: Icons.more_vert_rounded,
                         background: state is ProfileGetDataLoadingStates
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : PartTopProfile(
@@ -128,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                   body: TabBarView(
                     children: [
                       state is ProfileGetDataLoadingStates
-                          ? Scaffold(
+                          ? const Scaffold(
                               body: Center(
                                 child: CircularProgressIndicator(),
                               ),
@@ -137,7 +124,7 @@ class ProfileScreen extends StatelessWidget {
                               posts: cubit.profileData!.posts,
                             ),
                       state is ProfileGetDataLoadingStates
-                          ? Scaffold(
+                          ? const Scaffold(
                               body: Center(
                                 child: CircularProgressIndicator(),
                               ),

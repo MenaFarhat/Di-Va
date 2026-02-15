@@ -1,18 +1,19 @@
-import 'dart:math';
+// ignore_for_file: must_be_immutable
 
+
+import 'package:diva/module/forgot_password/components/defalt_pin.dart';
+import 'package:diva/module/forgot_password/cubit/forgot_password_cubit.dart';
+import 'package:diva/module/forgot_password/new_password.dart';
+import 'package:diva/module/forgot_password/reset_password_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/module/forgot_password/components/defalt_pin.dart';
-import 'package:project1/module/forgot_password/cubit/forgot_password_cubit.dart';
-import 'package:project1/module/forgot_password/new_password.dart';
-import 'package:project1/module/forgot_password/reset_password_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class ConfirmScreen extends StatefulWidget {
   String? email;
-  ConfirmScreen({
+  ConfirmScreen({super.key, 
     required this.email,
   });
   @override
@@ -98,7 +99,7 @@ class ConfirmScreenState extends State<ConfirmScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "confirm your account",
                   style: TextStyle(
                     color: Colors.black,
@@ -111,14 +112,14 @@ class ConfirmScreenState extends State<ConfirmScreen> {
                 Text(
                   "Enter the code we sent to \n$censuredEmail", //touka.*********.com",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
                 SizedBox(
                   height: getProportionateScreenHeight(29),
                 ),
-                Text(
+                const Text(
                   "we sent a 5-digit code to your email address\nEnter that code to reset your password",
                   textAlign: TextAlign.center,
                   style: TextStyle(

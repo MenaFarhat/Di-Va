@@ -1,13 +1,13 @@
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 Widget interestsNameItem(String name) {
   return Padding(
     padding: EdgeInsets.only(right: getProportionateScreenWidth(10)),
     child: Row(
       children: [
-        Text(
+        const Text(
           "#",
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -19,7 +19,7 @@ Widget interestsNameItem(String name) {
         Text(
           name,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
+          style: const TextStyle(
             color: defaultColor,
           ),
         ),

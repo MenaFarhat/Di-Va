@@ -1,14 +1,15 @@
+// ignore_for_file: deprecated_member_use, must_be_immutable
+
 import 'dart:io';
+import 'package:diva/module/camera/cubit/image_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:project1/module/camera/cubit/image_cubit.dart';
 
 class AssetThumbnail extends StatelessWidget {
   final AssetEntity? asset;
   GlobalKey? keyForBack;
   ImageCubit? cubit;
-  AssetThumbnail({required this.asset, required this.keyForBack, this.cubit});
+  AssetThumbnail({super.key, required this.asset, required this.keyForBack, this.cubit});
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<File?>(
@@ -18,7 +19,7 @@ class AssetThumbnail extends StatelessWidget {
         File? fileImage = snapshot.data;
 
         if (fileImage == null) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
@@ -28,7 +29,7 @@ class AssetThumbnail extends StatelessWidget {
             cubit!.getCurrentImage(newImage: fileImage);
             Scrollable.ensureVisible(
               keyForBack!.currentContext!,
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
             );
           },
           child: cubit!.currentImage!.path == fileImage.path

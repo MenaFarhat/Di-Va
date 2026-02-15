@@ -1,11 +1,5 @@
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/styes/colors.dart';
-// export 'package:flutter/rendering.dart' show
-//   SliverGridDelegate,
-//   SliverGridDelegateWithFixedCrossAxisCount,
-//   SliverGridDelegateWithMaxCrossAxisExtent;
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
@@ -16,17 +10,17 @@ class ExploreScreen extends StatelessWidget {
     return Scaffold(
       // backgroundColor: Colors.black,
       body: GridView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         itemCount: 15,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 2,
           mainAxisSpacing: 2,
         ),
         itemBuilder: (context, index) => buidPostExplorItem(
           onPress: () {
-            Navigator.pushNamed(context, ShowPostScreen.routeName);
+            // Navigator.pushNamed(context);
           },
         ),
       ),
@@ -42,7 +36,7 @@ Widget buidPostExplorItem({
       child: Container(
         width: getProportionateScreenWidth(190),
         height: getProportionateScreenWidth(170),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               "assets/images/interests/art.jpg",

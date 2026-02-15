@@ -1,22 +1,22 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:dio/dio.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/styes/colors.dart';
+
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 Future<Response> sendFile(String url, File? file) async {
   final token = CacheHelper.getData(key: TOKEN);
   print(token);
-  var len = await file!.length();
+  await file!.length();
 
   Dio dio = Dio();
   // dio.options.responseType = ResponseType.plain;
@@ -81,30 +81,29 @@ class _AddphotoState extends State<Addphoto> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Text(
+          const Text(
             "Add Profile Picture",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
           ),
-          SizedBox(
+          const SizedBox(
             height: 70,
           ),
           SingleChildScrollView(
             child: Column(children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 190,
                 backgroundImage: AssetImage(
                   'assets/images/interests/music.jpg',
                 ),
                 //radius: 300,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TextButton.icon(
@@ -116,12 +115,12 @@ class _AddphotoState extends State<Addphoto> {
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             ListTile(
-                              leading: Icon(
+                              leading: const Icon(
                                 FluentIcons.image_multiple_48_filled,
                                 color: defaultColor,
                                 size: 30,
                               ),
-                              title: Text(
+                              title: const Text(
                                 'Gallary',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -141,12 +140,12 @@ class _AddphotoState extends State<Addphoto> {
                               },
                             ),
                             ListTile(
-                              leading: Icon(
+                              leading: const Icon(
                                 Icons.camera,
                                 color: defaultColor,
                                 size: 30,
                               ),
-                              title: Text(
+                              title: const Text(
                                 'Camera',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -161,12 +160,12 @@ class _AddphotoState extends State<Addphoto> {
                         );
                       });
                 },
-                icon: Icon(
+                icon: const Icon(
                   FluentIcons.shape_intersect_24_filled,
                   size: 45,
                   color: defaultColor,
                 ),
-                label: Text(
+                label: const Text(
                   "Tab to Add",
                   style: TextStyle(
                     fontSize: 20,
@@ -180,12 +179,12 @@ class _AddphotoState extends State<Addphoto> {
           // SizedBox(
           //       height: 203,
           //     ),
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: EdgeInsets.all(4),
+                padding: const EdgeInsets.all(4),
                 child: defaultButton(
                   function: () {
                     // Todo: NAv +send +if(formkey)

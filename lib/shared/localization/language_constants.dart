@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 const String LAGUAGE_CODE = 'languageCode';
@@ -11,14 +13,14 @@ const String? NULL = null;
 Locale? locale(String? languageCode) {
   switch (languageCode) {
     case ENGLISH:
-      return Locale(ENGLISH, 'US');
+      return const Locale(ENGLISH, 'US');
     case ARABIC:
-      return Locale(ARABIC, "SA");
+      return const Locale(ARABIC, "SA");
     case DEFULT:
       return null;
     case NULL:
-      return Locale(ENGLISH, 'US');
+      return const Locale(ENGLISH, 'US');
     default:
-      return Locale(ENGLISH, 'US');
+      return const Locale(ENGLISH, 'US');
   }
 }

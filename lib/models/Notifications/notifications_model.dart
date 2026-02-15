@@ -40,7 +40,7 @@ class Notifications {
     type = json['type'];
     notifiableType = json['notifiable_type'];
     notifiableId = json['notifiable_id'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
     readAt = json['read_at'];
     createdAt = DateTime.parse(json['created_at'].toString());
     updatedAt = json['updated_at'];

@@ -1,35 +1,27 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+// ignore_for_file: deprecated_member_use
+
+import 'package:diva/layout/my_profile_layout/my_profile_layout.dart';
+import 'package:diva/layout/profile/profile_screen.dart';
+import 'package:diva/models/extensions/date_time_extension.dart';
+import 'package:diva/models/home_post/home_post_model.dart';
+import 'package:diva/module/comments/comments_screeen.dart';
+import 'package:diva/module/comments/components/components.dart';
+import 'package:diva/module/home_post/components/settings_home_post_bottom_sheet.dart';
+import 'package:diva/module/home_post/cubit/home_post_cubit.dart';
+import 'package:diva/module/search/components/build_search_interest.dart';
+import 'package:diva/module/show_post/cubit/show_post_cubit.dart';
+import 'package:diva/module/show_post/show_post_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/constants.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/network/remote/end_points.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:iconify_flutter/icons/uil.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/layout/profile/profile_screen.dart';
-import 'package:project1/models/explore_model.dart';
-import 'package:project1/models/home_post/home_post_model.dart';
-import 'package:project1/models/interstes/interests_model.dart';
-import 'package:project1/module/comments/comments_screeen.dart';
-import 'package:project1/module/comments/components/components.dart';
-import 'package:project1/module/edit_post/edit_post_screen.dart';
-import 'package:project1/module/home_post/components/settings_home_post_bottom_sheet.dart';
-import 'package:project1/module/home_post/cubit/home_post_cubit.dart';
-import 'package:project1/module/home_post/home_post_screen.dart';
-import 'package:project1/models/extensions/date_time_extension.dart';
-import 'package:project1/module/search/components/build_search_interest.dart';
-import 'package:project1/module/show_post/cubit/show_post_cubit.dart';
-import 'package:project1/module/show_post/show_post_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/network/remote/end_points.dart';
-import 'package:project1/shared/routes/routes.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/shared/styes/icon_broken.dart';
-import 'package:project1/tes/ne/add_post.dart';
 import 'package:readmore/readmore.dart';
 
 Widget buidPostHomeItem({
@@ -69,7 +61,7 @@ Widget buidPostHomeItem({
         Row(
           children: [
             post!.post!.user?.photo == null
-                ? CircleAvatar(
+                ? const CircleAvatar(
                     backgroundImage: AssetImage(
                       USERIMAGENULL,
                     ),
@@ -89,7 +81,7 @@ Widget buidPostHomeItem({
                       ? () {
                           navigateTo(
                             context,
-                            MyProfileLayout(),
+                            const MyProfileLayout(),
                           );
                         }
                       : () {
@@ -110,20 +102,20 @@ Widget buidPostHomeItem({
                 ),
                 Text(
                   post.post!.createdAt!.timeAgo(numericDates: false),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xff909090),
                     fontSize: 10,
                   ),
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             if (myUserId == post.post!.userId)
               IconButton(
                 onPressed: () {
                   showModalBottomSheet(
                     context: context,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(20),
                       ),
@@ -138,7 +130,7 @@ Widget buidPostHomeItem({
                     },
                   );
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_command_key_sharp,
                   color: defaultColor,
                 ),
@@ -153,19 +145,19 @@ Widget buidPostHomeItem({
             ),
             child: ReadMoreText(
               post.post!.content!,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
               ),
               trimMode: TrimMode.Line,
               trimLines: 2,
               trimCollapsedText: 'Show more',
-              moreStyle: TextStyle(
+              moreStyle: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
                 color: defaultColor,
               ),
               trimExpandedText: 'Show less',
-              lessStyle: TextStyle(
+              lessStyle: const TextStyle(
                 color: defaultColor,
                 fontSize: 13,
               ),
@@ -207,11 +199,11 @@ Widget buidPostHomeItem({
                           context: context,
                         )),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),
-        Divider(
+        const Divider(
           color: textColor,
           thickness: 0.5,
         ),
@@ -230,7 +222,7 @@ Widget buidPostHomeItem({
                   icon: Ph.arrow_fat_lines_up_thin, //Bx.upvote,
                   numberOfREact: post.post!.upVotesNumber!,
                 ),
-                Spacer(),
+                const Spacer(),
                 reactPost(
                   color: post.post!.react == "Downvoted"
                       ? defaultColor
@@ -241,7 +233,7 @@ Widget buidPostHomeItem({
                   icon: Ph.arrow_fat_lines_down_thin, // Bx.downvote,
                   numberOfREact: post.post!.downVotesNumber!,
                 ),
-                Spacer(
+                const Spacer(
                   flex: 2,
                 ),
                 reactPost(
@@ -265,7 +257,7 @@ Widget buidPostHomeItem({
                   icon: Uil.comment_dots,
                   numberOfREact: post.post!.commentsNumber!,
                 ),
-                Spacer(
+                const Spacer(
                   flex: 2,
                 ),
               ],

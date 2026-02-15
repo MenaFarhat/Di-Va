@@ -1,16 +1,13 @@
-import 'dart:developer';
+
+// ignore_for_file: avoid_types_as_parameter_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diva/models/chat/message_model.dart';
+import 'package:diva/models/chat/user_message_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/my_profile_layout/cubit/my_profile_layout_cubit.dart';
-import 'package:project1/layout/my_profile_layout/my_profile_layout.dart';
-import 'package:project1/models/chat/message_model.dart';
-import 'package:project1/models/chat/user_message_model.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
 
 // import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 

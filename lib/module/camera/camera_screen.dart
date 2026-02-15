@@ -1,21 +1,18 @@
-import 'dart:developer';
+// ignore_for_file: use_build_context_synchronously, avoid_print, library_private_types_in_public_api, must_be_immutable
+
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:diva/module/add_photo/add_photo_register_screen.dart';
+import 'package:diva/module/add_post/gallery_add_post_screen.dart';
+import 'package:diva/module/edit_profile/edit_photo_screen.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project1/module/add_photo/add_photo_register_screen.dart';
-
-import 'package:project1/module/add_post/gallery_add_post_screen.dart';
-import 'package:project1/module/edit_profile/edit_photo_screen.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/size_config.dart';
-
-// import 'package:permission_handler/permission_handler.dart';
-
 class CameraScreen extends StatefulWidget {
   List<CameraDescription>? cameras;
   String? tikePictureNavigator;
-  CameraScreen({required this.cameras, required this.tikePictureNavigator});
+  CameraScreen({super.key, required this.cameras, required this.tikePictureNavigator});
 
   @override
   _CameraScreenState createState() => _CameraScreenState();
@@ -27,7 +24,6 @@ class _CameraScreenState extends State<CameraScreen>
 
   // Initial values
   bool _isCameraInitialized = false;
-  bool _isCameraPermissionGranted = true;
   bool _isRearCameraSelected = true;
 
   double _minAvailableExposureOffset = 0.0;
@@ -246,15 +242,15 @@ class _CameraScreenState extends State<CameraScreen>
                                       for (ResolutionPreset preset
                                           in resolutionPresets)
                                         DropdownMenuItem(
+                                          value: preset,
                                           child: Text(
                                             preset
                                                 .toString()
                                                 .split('.')[1]
                                                 .toUpperCase(),
                                             style:
-                                                TextStyle(color: Colors.white),
+                                                const TextStyle(color: Colors.white),
                                           ),
-                                          value: preset,
                                         )
                                     ],
                                     onChanged: (value) {
@@ -265,7 +261,7 @@ class _CameraScreenState extends State<CameraScreen>
                                       onNewCameraSelected(
                                           controller!.description);
                                     },
-                                    hint: Text("Select item"),
+                                    hint: const Text("Select item"),
                                   ),
                                 ),
                               ),
@@ -285,9 +281,8 @@ class _CameraScreenState extends State<CameraScreen>
                                     vertical: getProportionateScreenHeight(8),
                                   ),
                                   child: Text(
-                                    _currentExposureOffset.toStringAsFixed(1) +
-                                        'x',
-                                    style: TextStyle(color: Colors.black),
+                                    '${_currentExposureOffset.toStringAsFixed(1)}x',
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ),
@@ -295,7 +290,7 @@ class _CameraScreenState extends State<CameraScreen>
                             Expanded(
                               child: RotatedBox(
                                 quarterTurns: 3,
-                                child: Container(
+                                child: SizedBox(
                                   height: getProportionateScreenHeight(30),
                                   child: Slider(
                                     value: _currentExposureOffset,
@@ -346,9 +341,8 @@ class _CameraScreenState extends State<CameraScreen>
                                           vertical:
                                               getProportionateScreenHeight(8)),
                                       child: Text(
-                                        _currentZoomLevel.toStringAsFixed(1) +
-                                            'x',
-                                        style: TextStyle(color: Colors.white),
+                                        '${_currentZoomLevel.toStringAsFixed(1)}x',
+                                        style: const TextStyle(color: Colors.white),
                                       ),
                                     ),
                                   ),
@@ -447,7 +441,7 @@ class _CameraScreenState extends State<CameraScreen>
                                             !_isRearCameraSelected;
                                       });
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.cameraswitch_outlined,
                                       color: Colors.white,
                                     ),
@@ -510,12 +504,12 @@ class _CameraScreenState extends State<CameraScreen>
                                   child: Stack(
                                     alignment: Alignment.center,
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.circle,
                                         color: Colors.white38,
                                         size: 80,
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.circle,
                                         color: Colors.white,
                                         size: 65,
@@ -531,7 +525,7 @@ class _CameraScreenState extends State<CameraScreen>
                       ),
                     ],
                   )
-                : Center(
+                : const Center(
                     child: Text(
                       'LOADING',
                       style: TextStyle(color: Colors.white),

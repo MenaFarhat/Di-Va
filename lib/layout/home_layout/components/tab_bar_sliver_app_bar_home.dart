@@ -1,7 +1,11 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/shared/styes/colors.dart';
 
 class TabBarSliverAppBarHome extends StatelessWidget {
+  const TabBarSliverAppBarHome({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -9,7 +13,7 @@ class TabBarSliverAppBarHome extends StatelessWidget {
       elevation: 0,
       toolbarHeight: 0,
       pinned: true,
-      bottom: TabBar(
+      bottom: const TabBar(
         indicatorColor: defaultColor,
         indicatorSize: TabBarIndicatorSize.label,
         labelColor: defaultColor,
@@ -34,9 +38,9 @@ class TabBarSliverAppBarHome extends StatelessWidget {
       flexibleSpace: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(
-            bottomLeft: const Radius.circular(25),
-            bottomRight: const Radius.circular(25),
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(25),
+            bottomRight: Radius.circular(25),
           ),
           boxShadow: [
             BoxShadow(

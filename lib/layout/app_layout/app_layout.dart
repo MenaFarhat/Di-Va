@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diva/layout/app_layout/components/custom_nav_bar.dart';
+import 'package:diva/layout/app_layout/cubit/app_layout_cubit.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/components/custom_nav_bar.dart';
-import 'package:project1/layout/app_layout/cubit/app_layout_cubit.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
 
 class AppLayout extends StatefulWidget {
+  const AppLayout({super.key});
+
   @override
   State<AppLayout> createState() => _AppLayoutState();
 }

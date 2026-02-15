@@ -13,7 +13,7 @@ class CustomPainterNavigationBar extends CustomPainter {
     path.lineTo(size.width * 0.20, 0);
     path.quadraticBezierTo(size.width * 0.30, 0, size.width * 0.45, -35);
     path.arcToPoint(Offset(size.width * 0.55, -35),
-        radius: Radius.elliptical(70, 70), clockwise: true);
+        radius: const Radius.elliptical(70, 70), clockwise: true);
     path.quadraticBezierTo(size.width * 0.69, 0, size.width * 0.75, 0);
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
@@ -38,7 +38,6 @@ class CustomPainterNavigationBar extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return false;
   }
 }

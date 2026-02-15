@@ -1,16 +1,16 @@
+// ignore_for_file: use_build_context_synchronously, must_be_immutable
+
+import 'package:diva/layout/app_layout/app_layout.dart';
+import 'package:diva/module/forgot_password/reset_password_screen.dart';
+import 'package:diva/module/login/cubit/login_cubit.dart';
+import 'package:diva/module/register/register_screen.dart.dart';
+import 'package:diva/shared/components/components.dart';
+import 'package:diva/shared/components/size_config.dart';
+import 'package:diva/shared/network/local/cache_helper.dart';
+import 'package:diva/shared/network/local/end_point.dart';
+import 'package:diva/shared/styes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project1/layout/app_layout/app_layout.dart';
-import 'package:project1/module/forgot_password/reset_password_screen.dart';
-import 'package:project1/module/login/cubit/login_cubit.dart';
-import 'package:project1/module/register/register_screen.dart.dart';
-import 'package:project1/shared/components/components.dart';
-import 'package:project1/shared/components/constants.dart';
-import 'package:project1/shared/components/size_config.dart';
-import 'package:project1/shared/network/local/cache_helper.dart';
-import 'package:project1/shared/network/local/end_point.dart';
-import 'package:project1/shared/styes/colors.dart';
-import 'package:project1/layout/home_layout/home_layout.dart';
 
 class LoginScreen extends StatelessWidget {
   static String routeName = "/login";
@@ -19,6 +19,8 @@ class LoginScreen extends StatelessWidget {
   var formkey = GlobalKey<FormState>();
 
   FocusNode? pinPasswordFocusNode = FocusNode();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                 .then((value) {
               CacheHelper.saveData(key: USERID, value: state.user.user!.id)
                   .then((value) {
-                navigateAndFinish(context, AppLayout());
+                navigateAndFinish(context, const AppLayout());
               }).catchError((error) {
                 showToast(
                   state: ToastState.WORNING,
@@ -70,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             height: getProportionateScreenHeight(40),
                           ),
-                          Text(
+                          const Text(
                             "Login",
                             style: TextStyle(
                               fontSize: 32,
@@ -79,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             height: getProportionateScreenHeight(10),
                           ),
-                          Text(
+                          const Text(
                             "Add your details to login",
                             style: TextStyle(
                               fontSize: 16,
@@ -153,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                             height: getProportionateScreenHeight(23),
                           ),
                           if (state is LoginLoadingState)
-                            CircularProgressIndicator(),
+                            const CircularProgressIndicator(),
                           TextButton(
                             onPressed: () {
                               Navigator.pushNamed(
@@ -161,7 +163,7 @@ class LoginScreen extends StatelessWidget {
                                 ResetPasswordScreen.routeName,
                               );
                             },
-                            child: Text(
+                            child: const Text(
                               "Forgot your Password?",
                               style: TextStyle(
                                 fontSize: 16,
@@ -175,7 +177,7 @@ class LoginScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
+                              const Text(
                                 "Don't have an Account?",
                                 style: TextStyle(
                                   fontSize: 16,
@@ -187,7 +189,7 @@ class LoginScreen extends StatelessWidget {
                                   Navigator.pushReplacementNamed(
                                       context, RegisterScreen.routeName);
                                 },
-                                child: Text(
+                                child: const Text(
                                   "Sign Up",
                                   style: TextStyle(
                                     fontSize: 16,
@@ -206,7 +208,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     width: getProportionateScreenWidth(375),
                     height: getProportionateScreenHeight(230),
-                    child: Image(
+                    child: const Image(
                       image: AssetImage("assets/images/login.png"),
                       fit: BoxFit.cover,
                     ),
